@@ -5,7 +5,7 @@ import right from "../assets/images/fe_arrow-right.png";
 
 export function Header() {
   return (
-    <header className="h-20 bg-[#18181A] text-white">
+    <header className="h-20 relative bg-[#18181A] text-white">
       <div className=" ml-1 lg:ml-50  mx-auto h-full flex items-center justify-between px-4">
         <div className="flex items-center flex-1 min-w-0">
           <div className="hidden     lg:flex items-center">
