@@ -6,7 +6,7 @@ export function PlayListCard() {
       <div className="h-full relative w-55 overflow-hidden rounded-md ml-3">
         <img
           src={cover}
-          className="absolute w-full h-full brightness-15"
+          className="absolute w-full h-full brightness-25"
           alt=""
         />
         <div className="h-45 flex justify-center">
