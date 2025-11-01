@@ -6,7 +6,7 @@ export function PodcastCard() {
       <div className="h-full relative w-113 overflow-hidden rounded-2xl ml-3">
         <img
           src={cover1}
-          className="absolute rounded-2xl w-full h-100 brightness-25"
+          className="absolute rounded-2xl w-full h-41 brightness-25"
           alt=""
         />
         <div className="h-45 ml-2 flex w-full ">

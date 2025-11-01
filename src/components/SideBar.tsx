@@ -8,7 +8,7 @@ import like from "../assets/images/Active.png";
 
 export function SideBar() {
   return (
-    <aside className="bg-[#333333] hidden lg:block h-full w-50 flex flex-col absolute top-0">
+    <aside className="bg-[#333333] z-10 hidden lg:flex justify-between w-50 h-full  flex-col absolute top-0">
       <div className="flex items-center justify-center flex-col">
         <h1 className="text-3xl font-bold text-[#1ED760] mt-3">Music-app</h1>
         <p className="text-[#006724]">by gallisak</p>
@@ -28,7 +28,7 @@ export function SideBar() {
         </div>
       </div>
 
-      <button className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-4 mt-10 rounded-4xl ">
+      <button className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mt3 rounded-4xl ">
         <img className="" src={addMusic} alt="" />
         Create Playlist
       </button>
