@@ -10,7 +10,7 @@ export function PlayListCard() {
           alt=""
         />
         <div className="h-45 flex justify-center">
-          <img src={cover} className="h-37 w-45 mt-5 relative" alt="" />
+          <img src={cover} className="h-47 w-45 mt-5 relative" alt="" />
         </div>
         <div className="h-35 relative z-10 flex flex-col justify-center">
           <h1 className="text-white ml-6">Woman of Indonesia</h1>

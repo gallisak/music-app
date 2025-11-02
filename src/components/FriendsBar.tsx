@@ -6,11 +6,11 @@ export function FriendsBar() {
           Friend’s Listening To
         </h1>
         <div className="flex items-center flex-col mt-6 mb-3">
-          <div className="mb-3 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
-          <div className="mb-3 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
-          <div className="mb-3 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
-          <div className="mb-3 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
-          <div className="mb-3 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
+          <div className="mb-2 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
+          <div className="mb-2 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
+          <div className="mb-2 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
+          <div className="mb-2 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
+          <div className="mb-2 rounded-4xl bg-[#5c5c5c] w-42 h-15"></div>
         </div>
         <h1 className="ml-8 mt-3 text-white text-[18px]">Suggest to Follow</h1>
       </div>
