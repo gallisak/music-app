@@ -8,7 +8,7 @@ import like from "../assets/images/Active.png";
 
 export function SideBar() {
   return (
-    <aside className="bg-[#333333] z-10 hidden lg:flex justify-between w-50 h-full  flex-col absolute top-0">
+    <aside className="bg-[#333333] fixed z-10 hidden lg:flex justify-between w-50 h-full  flex-col top-0">
       <div className="flex items-center justify-center flex-col">
         <h1 className="text-3xl font-bold text-[#1ED760] mt-3">Music-app</h1>
         <p className="text-[#006724]">by gallisak</p>

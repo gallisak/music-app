@@ -1,3 +1,4 @@
+import { ControlMobileBar } from "../../components/ControlMobileBar";
 import { FriendsBar } from "../../components/FriendsBar";
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
@@ -24,6 +25,10 @@ export function HomePage() {
 
       <div className="h-41 ml-0 lg:ml-50 flex">
         <PodcastCardGrig />
+      </div>
+
+      <div>
+        <ControlMobileBar />
       </div>
     </>
   );
