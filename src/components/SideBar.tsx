@@ -5,6 +5,7 @@ import addMusic from "../assets/images/icon-park-outline_add-music.png";
 import PhotoMusic from "../assets/images/Cover Album.png";
 import airPlay from "../assets/images/AirPlay.png";
 import like from "../assets/images/Active.png";
+import { Link } from "react-router-dom";
 
 export function SideBar() {
   return (
@@ -16,11 +17,11 @@ export function SideBar() {
       <div className="ml-5 mt-5 text-[#ACACAC]">
         <div className="mb-3 flex gap-2 w-6 h-6 ">
           <img src={homeIcon} alt="" />
-          <p>Home</p>
+          <Link to="/">Home</Link>
         </div>
         <div className="mb-3 flex gap-2">
           <img src={libraryIcon} alt="" />
-          <p>Your Library</p>
+          <Link to="/Library">Your Library</Link>
         </div>
         <div className="mb-3 flex gap-2">
           <img src={headphones} alt="" />
