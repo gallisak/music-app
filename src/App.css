@@ -3,3 +3,9 @@
 body {
   @apply bg-[#363636];
 }
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}

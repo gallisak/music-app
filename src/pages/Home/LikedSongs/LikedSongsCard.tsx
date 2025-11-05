@@ -7,7 +7,7 @@ export function LikedSongsCard() {
         <div className="h-full ml-5 flex justify-start items-center">
           <img src={cover} className="h-10 w-10 relative" alt="" />
         </div>
-        <div className=" relative z-10 flex flex-col justify-center">
+        <div className=" relative z-0 flex flex-col justify-center">
           <h1 className="text-white text-[18px]  ml-6">CLUB NISSAN</h1>
           <p className="text-gray-400 ml-6 mr-6 text-[12px]">
             Noxygen • CLUB NISSAN
