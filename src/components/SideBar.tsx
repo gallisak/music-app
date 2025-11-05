@@ -25,7 +25,7 @@ export function SideBar() {
         </div>
         <div className="mb-3 flex gap-2">
           <img src={headphones} alt="" />
-          <p>Liked Songs</p>
+          <Link to="/LikedSongs">Liked Songs</Link>
         </div>
       </div>
 
