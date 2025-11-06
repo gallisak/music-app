@@ -8,7 +8,7 @@ export function FriendsBar() {
         <h1 className="ml-6 mt-3 text-white text-[18px]">
           Friend’s Listening To
         </h1>
-        <div className="flex items-center flex-col mt-6 mb-3">
+        <div className="flex items-center flex-col mt-6 mb-3 hover:brightness-70">
           <ListeningToCard />
         </div>
 

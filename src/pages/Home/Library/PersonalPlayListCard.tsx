@@ -3,7 +3,7 @@ import cover from "../../../assets/images/Cover.png";
 export function PersonalPlayListCard() {
   return (
     <div>
-      <div className="h-30 border-b-2 flex w-full bg-[#232323] overflow-hidden">
+      <div className="h-30 border-b-2 flex w-full bg-[#232323] overflow-hidden hover:brightness-70">
         <div className="h-full ml-5 flex justify-start items-center">
           <img src={cover} className="h-26 w-26 relative" alt="" />
         </div>

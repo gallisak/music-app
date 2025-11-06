@@ -17,32 +17,38 @@ export function SideBar() {
       <div className="ml-5 mt-5 text-[#ACACAC]">
         <div className="mb-3 flex gap-2 w-6 h-6 ">
           <img src={homeIcon} alt="" />
-          <Link to="/">Home</Link>
+          <Link className="hover:text-[#ffffff]" to="/">
+            Home
+          </Link>
         </div>
         <div className="mb-3 flex gap-2">
           <img src={libraryIcon} alt="" />
-          <Link to="/Library">Your Library</Link>
+          <Link className="hover:text-[#ffffff]" to="/Library">
+            Your Library
+          </Link>
         </div>
         <div className="mb-3 flex gap-2">
           <img src={headphones} alt="" />
-          <Link to="/LikedSongs">Liked Songs</Link>
+          <Link className="hover:text-[#ffffff]" to="/LikedSongs">
+            Liked Songs
+          </Link>
         </div>
       </div>
 
-      <button className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl ">
+      <button className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl hover:brightness-70">
         <img className="" src={addMusic} alt="" />
         Create Playlist
       </button>
       <div className="w-41 mt-3 ml-4 border-[#464646] border-b-2 h-2"></div>
 
       <div className="ml-5 mt-5 text-[#ACACAC]">
-        <p className="mb-3">Your Top Song 2025</p>
+        <p className="mb-3 hover:text-[#ffffff]">Your Top Song 2025</p>
 
-        <p className="mb-3">Cover Hits 2025</p>
+        <p className="mb-3 hover:text-[#ffffff]">Cover Hits 2025</p>
 
-        <p className="mb-3">Anime Hits</p>
+        <p className="mb-3 hover:text-[#ffffff]">Anime Hits</p>
 
-        <p className="mb-3">Best Gaming Music </p>
+        <p className="mb-3 hover:text-[#ffffff]">Best Gaming Music </p>
       </div>
 
       <div className="flex flex-col justify-between items-center text-white">

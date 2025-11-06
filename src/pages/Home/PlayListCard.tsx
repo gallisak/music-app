@@ -3,7 +3,7 @@ import cover from "../../assets/images/Cover.png";
 export function PlayListCard() {
   return (
     <>
-      <div className=" flex-shrink-0 h-full relative w-55 overflow-hidden rounded-md ml-3">
+      <div className=" shrink-0 h-full relative w-55 overflow-hidden rounded-md ml-3 hover:brightness-70">
         <img
           src={cover}
           className="absolute w-full h-full brightness-25"
