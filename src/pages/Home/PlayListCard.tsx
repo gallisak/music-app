@@ -1,9 +1,13 @@
 import cover from "../../assets/images/Cover.png";
+import { Link } from "react-router-dom";
 
 export function PlayListCard() {
   return (
     <>
-      <div className=" shrink-0 h-full relative w-55 overflow-hidden rounded-md ml-3 hover:brightness-70">
+      <Link
+        to="/PlayList"
+        className="shrink-0 h-full relative w-55 overflow-hidden rounded-md ml-3 hover:brightness-70"
+      >
         <img
           src={cover}
           className="absolute w-full h-full brightness-25"
@@ -18,7 +22,7 @@ export function PlayListCard() {
             Indonesian female artists who enrich the diversity of music...
           </p>
         </div>
-      </div>
+      </Link>
     </>
   );
 }
