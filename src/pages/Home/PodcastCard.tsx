@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
 import cover1 from "../../assets/images/Cover1.png";
 
 export function PodcastCard() {
   return (
     <>
-      <div className="shrink-0 flex h-full relative w-113 overflow-hidden rounded-2xl ml-3 hover:brightness-70">
+      <Link
+        to="/Podcast"
+        className="shrink-0 flex h-full relative w-113 overflow-hidden rounded-2xl ml-3 hover:brightness-70"
+      >
         <img
           src={cover1}
           className="absolute rounded-2xl w-full h-41 brightness-25"
@@ -32,7 +36,7 @@ export function PodcastCard() {
             </p>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 }

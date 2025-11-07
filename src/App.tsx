@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { LibraryPage } from "./pages/Home/Library/LibraryPage";
 import { LikedSongsPage } from "./pages/Home/LikedSongs/LikedSongsPage";
 import { PlayListOpen } from "./pages/Home/PlayListOpen";
+import { PodcastOpen } from "./pages/Home/PodcastOpen";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/Library" element={<LibraryPage />} />
         <Route path="/LikedSongs" element={<LikedSongsPage />} />
-        <Route path="/PlayList" element={<PlayListOpen />}></Route>
+        <Route path="/PlayList" element={<PlayListOpen />} />
+        <Route path="/Podcast" element={<PodcastOpen />} />
       </Routes>
     </>
   );
