@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/Library" element={<LibraryPage />} />
         <Route path="/LikedSongs" element={<LikedSongsPage />} />
-        <Route path="/PlayList" element={<PlayListOpen />} />
+        <Route path="/PlayList/:albumId" element={<PlayListOpen />} />
         <Route path="/Podcast" element={<PodcastOpen />} />
       </Routes>
     </>

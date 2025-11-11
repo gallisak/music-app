@@ -1,5 +1,5 @@
 interface SongCardProps {
-  photo: string;
+  photo: string | undefined;
   title: string;
   description: string;
   className?: string;
@@ -18,7 +18,7 @@ export function SongCard({
           className={`h-15 border-b-2 flex w-full ${className} bg-[#232323] overflow-hidden hover:brightness-70`}
         >
           <div className="h-full ml-5 flex justify-start items-center">
-            <img src={photo} className="h-10 w-10 relative" alt="" />
+            <img src={photo} className="h-10 w-10 relative rounded-md" alt="" />
           </div>
           <div className=" relative z-0 flex flex-col justify-center">
             <h1 className="text-white text-[18px]  ml-6">{title}</h1>
