@@ -25,14 +25,20 @@ export function ControlMobileBar() {
           <p className="text-white">Your Library</p>
         </Link>
       </div>
-      <div className="flex flex-col text-[10px] justify-center items-center">
+      <Link
+        className="flex flex-col text-[10px] justify-center items-center"
+        to="/LikedSongs"
+      >
         <img src={headphones} className="w-6" alt="Home Icon" />
         <p className="text-white">Liked Songs</p>
-      </div>
-      <div className="flex flex-col text-[10px] justify-center items-center mr-5">
+      </Link>
+      <Link
+        className="flex flex-col text-[10px] justify-center items-center mr-5"
+        to=""
+      >
         <img src={addMusic} className="w-6" alt="Home Icon" />
         <p className="text-white">Create Playlist</p>
-      </div>
+      </Link>
     </div>
   );
 }

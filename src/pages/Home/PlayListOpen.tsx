@@ -19,7 +19,6 @@ export function PlayListOpen() {
 
       <SongCard
         className="ml-50 mt-2"
-        className="ml-50 mt-2"
         photo={cover}
         title="Woman of Indonesia"
         description="Noxygen • CLUB NISSAN"
