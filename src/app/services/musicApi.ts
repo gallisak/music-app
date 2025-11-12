@@ -1,32 +1,30 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export interface Track {
-  id: number;
-  title: string;
-  artist: {
-    name: string;
-  };
-  album: {
-    cover_small: string;
-  };
-
-  link: string;
-  preview: string;
-}
-interface DeezerChartResponse {
-  data: Track[];
-}
 export interface Album {
   id: number;
   title: string;
   cover_big: string;
-  cover_medium: string;
+  cover_small: string;
+}
+
+export interface DeezerAlbumsResponse {
+  data: Album[];
+}
+
+export interface AlbumTracks {
+  id: number;
+  title: string;
+  preview: string;
+  album: {
+    cover_small: string;
+  };
   artist: {
     name: string;
   };
 }
-interface DeezerAlbumsResponse {
-  data: Album[];
+
+export interface DeezerAlbumsTracksResponse {
+  data: AlbumTracks[];
 }
 
 export const musicApi = createApi({
@@ -34,15 +32,12 @@ export const musicApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://corsproxy.io/?https://api.deezer.com/",
   }),
-
   endpoints: (builder) => ({
-    getChartTracks: builder.query<DeezerChartResponse, void>({
-      query: () => "chart/0/tracks",
-    }),
     getChartAlbums: builder.query<DeezerAlbumsResponse, void>({
       query: () => "chart/0/albums",
     }),
-    getAlbumTracks: builder.query<DeezerChartResponse, number>({
+
+    getAlbumTracks: builder.query<DeezerAlbumsTracksResponse, number>({
       query: (albumId) => `album/${albumId}/tracks`,
     }),
 
@@ -53,7 +48,6 @@ export const musicApi = createApi({
 });
 
 export const {
-  useGetChartTracksQuery,
   useGetChartAlbumsQuery,
   useGetAlbumTracksQuery,
   useGetAlbumDetailsQuery,

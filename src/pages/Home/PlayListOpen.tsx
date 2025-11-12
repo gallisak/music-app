@@ -38,7 +38,6 @@ export function PlayListOpen() {
       <Header />
       <SideBar />
       <FriendsBar />
-      return (
       <div>
         <div className="flex flex-col justify-center items-center mt-20">
           <img
@@ -49,14 +48,13 @@ export function PlayListOpen() {
           <h1 className="text-white text-[20px] mb-2">{albumDetails?.title}</h1>
         </div>
       </div>
-      );
+
       {tracksData &&
         tracksData.data.map((track) => {
           return (
             <SongCard
               key={track.id}
-              className="ml-50"
-              photo={albumDetails?.cover_big}
+              photo={albumDetails?.cover_small}
               title={track.title}
               description={track.artist.name}
             />
