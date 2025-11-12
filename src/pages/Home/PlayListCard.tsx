@@ -7,7 +7,7 @@ export function PlayListCard() {
   if (isLoading) {
     return (
       <span className="flex items-center text-[25px]">
-        <h1 className="ml-5 font-bold">Loading charts...</h1>
+        <h1 className="w-20 h-20 ml-20 rounded-full border-t-4 border-t-black border-l-4 border-l-gray-500 border-r-4 border-r-gray-500 border-b-4 border-b-gray-500 animate-spin"></h1>
       </span>
     );
   }

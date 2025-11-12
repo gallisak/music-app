@@ -23,10 +23,15 @@ export function PlayListOpen() {
   const { data: albumDetails, isLoading: isLoadingDetails } =
     useGetAlbumDetailsQuery(numericAlbumId, { skip: !numericAlbumId });
 
-  if (isLoadingTracks) return <div>Loading tracks from the album...</div>;
+  if (isLoadingTracks)
+    return (
+      <div className="min-h-100 min-w-100 flex flex-col justify-center items-center">
+        <div className="w-20 h-20 rounded-full border-t-4 border-t-black border-l-4 border-l-gray-500 border-r-4 border-r-gray-500 border-b-4 border-b-gray-500 animate-spin"></div>
+      </div>
+    );
   if (tracksError) return <div>Error loading tracks!</div>;
 
-  if (isLoadingDetails) return <div>Loading album details...</div>;
+  if (isLoadingDetails) return;
 
   return (
     <>
@@ -49,6 +54,7 @@ export function PlayListOpen() {
         tracksData.data.map((track) => {
           return (
             <SongCard
+              key={track.id}
               className="ml-50"
               photo={albumDetails?.cover_big}
               title={track.title}

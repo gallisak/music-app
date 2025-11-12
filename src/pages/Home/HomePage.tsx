@@ -11,7 +11,7 @@ export function HomePage() {
       <Header />
       <SideBar />
       <FriendsBar />
-      <h1 className="mb-5 mt-5 ml-5 lg:ml-54 text-white text-[34px]">
+      <h1 className="mb-5 mt-25 ml-5 lg:ml-54 text-white text-[34px]">
         Hot Today
       </h1>
 
