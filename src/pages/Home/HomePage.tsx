@@ -15,7 +15,7 @@ export function HomePage() {
         Hot Today
       </h1>
 
-      <div className="h-80 ml-0 lg:ml-50 flex">
+      <div className="h-80 ml-0 lg:ml-50  flex">
         <PlayListCardGrid />
       </div>
 
@@ -23,7 +23,7 @@ export function HomePage() {
         Enjoy Your Day
       </h1>
 
-      <div className="h-41 ml-0 lg:ml-50 flex">
+      <div className="h-41 ml-0 lg:ml-50 mb-10 flex">
         <PodcastCardGrig />
       </div>
 

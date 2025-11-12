@@ -27,6 +27,17 @@ export interface DeezerAlbumsTracksResponse {
   data: AlbumTracks[];
 }
 
+export interface Podcast {
+  id: number;
+  title: string;
+  description: string;
+  picture_big: string;
+}
+
+export interface DeezerPodcastResponse {
+  data: Podcast[];
+}
+
 export const musicApi = createApi({
   reducerPath: "musicApi",
   baseQuery: fetchBaseQuery({
@@ -44,6 +55,10 @@ export const musicApi = createApi({
     getAlbumDetails: builder.query<Album, number>({
       query: (albumId) => `album/${albumId}`,
     }),
+
+    getPodcast: builder.query<DeezerPodcastResponse, void>({
+      query: () => "chart/0/podcasts",
+    }),
   }),
 });
 
@@ -51,4 +66,5 @@ export const {
   useGetChartAlbumsQuery,
   useGetAlbumTracksQuery,
   useGetAlbumDetailsQuery,
+  useGetPodcastQuery,
 } = musicApi;

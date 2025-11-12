@@ -2,8 +2,15 @@ import photo1 from "../assets/images/Ellipse 1.png";
 import iconpark from "../assets/images/icon-park-outline_down.png";
 import left from "../assets/images/fe_arrow-left.png";
 import right from "../assets/images/fe_arrow-right.png";
+import { useState } from "react";
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleProfile = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header className="h-20 top-0 w-full fixed z-10 bg-[#18181A] text-white">
       <div className=" ml-1 lg:ml-50  mx-auto h-full flex items-center justify-between px-4">
@@ -28,11 +35,21 @@ export function Header() {
           <div className="hidden lg:flex items-center justify-center rounded-3xl h-12 w-42 bg-[#2A2A2A] border-2 border-green-500 hover:brightness-70">
             UPGRADE
           </div>
-          <div className="rounded-3xl h-12 bg-[#2A2A2A] ml-3 flex items-center justify-start p-1.5 lg:w-56">
+          <div
+            onClick={handleProfile}
+            className="rounded-3xl cursor-pointer h-12 bg-[#2A2A2A] ml-3 flex items-center justify-start p-1.5 lg:w-56 hover:brightness-70"
+          >
             <img src={photo1} className="w-9 h-9 ml-1" alt="profile photo" />
 
-            <p className="hidden lg:block ml-2">Andrew Halchyshak</p>
-            <img className="ml-2" src={iconpark} alt="menu button" />
+            <p className="hidden lg:block ml-2 mr-1.5">Andrew Halchyshak</p>
+            <img
+              className={`
+                transition-transform duration-300 ease-in-out
+                ${isOpen ? "rotate-180" : "rotate-0"}
+              `}
+              src={iconpark}
+              alt="menu button"
+            />
           </div>
         </div>
       </div>
