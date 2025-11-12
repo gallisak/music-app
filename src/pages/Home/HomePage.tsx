@@ -3,7 +3,7 @@ import { FriendsBar } from "../../components/FriendsBar";
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 import { PlayListCardGrid } from "./PlayListCardFlex";
-import { PodcastCardGrig } from "./PodcastCardFlex";
+import { ArtistCardFlex } from "./ArtistCardFlex";
 
 export function HomePage() {
   return (
@@ -20,11 +20,11 @@ export function HomePage() {
       </div>
 
       <h1 className="mb-5 mt-5 ml-5 lg:ml-54 text-white text-[34px]">
-        Enjoy Your Day
+        Top artists
       </h1>
 
       <div className="h-41 ml-0 lg:ml-50 mb-10 flex">
-        <PodcastCardGrig />
+        <ArtistCardFlex />
       </div>
 
       <div>

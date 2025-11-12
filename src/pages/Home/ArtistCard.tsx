@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useGetPodcastQuery } from "../../app/services/musicApi";
+import { useGetChartArtistsQuery } from "../../app/services/musicApi";
 
-export function PodcastCard() {
-  const { data, error, isLoading } = useGetPodcastQuery();
+export function ArtistCard() {
+  const { data, error, isLoading } = useGetChartArtistsQuery();
 
   if (isLoading) {
     return (
@@ -22,39 +22,33 @@ export function PodcastCard() {
 
   return (
     <>
-      {data?.data.map((podcast) => {
+      {data?.data.map((artist) => {
         return (
           <Link
-            key={podcast.id}
-            to={`/Podcast/${podcast.id}`}
+            key={artist.id}
+            to={`/Artist/${artist.id}`}
             className="shrink-0 flex h-full relative w-113 overflow-hidden rounded-2xl ml-3 hover:brightness-70"
           >
             <img
-              src={podcast.picture_big}
+              src={artist.picture_big}
               className="absolute rounded-md w-full h-41 brightness-25"
               alt=""
             />
             <div className="h-45 ml-2 flex w-full ">
               <img
-                src={podcast.picture_big}
+                src={artist.picture_big}
                 className="h-37 w-45 rounded-xl mt-2 relative"
                 alt=""
               />
               <div className="flex flex-col">
                 <div className="flex">
-                  <p className="relative h-5 text-[#B6B6B6] ml-3 mt-10 text-[12px]">
-                    PODCAST •
-                  </p>
-                  <p className="relative text-white h-5 ml-1 mt-10 text-[12px]">
-                    PANDJI PRAGIWAKSONO
+                  <p className="relative h-5 text-[#B6B6B6] font-bold ml-3 mt-10 text-[12px]">
+                    A R T I S T
                   </p>
                 </div>
                 <h1 className="relative text-white mt-1 ml-3 text-[19px]">
-                  {podcast.title}
+                  {artist.name}
                 </h1>
-                <p className="relative h-full mb-6  truncate text-[#B6B6B6] text-[12px] ml-3 w-50 mt-2">
-                  {podcast.description}
-                </p>
               </div>
             </div>
           </Link>

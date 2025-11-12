@@ -27,28 +27,16 @@ export interface DeezerAlbumsTracksResponse {
   data: AlbumTracks[];
 }
 
-export interface Podcast {
+export interface Artist {
   id: number;
-  title: string;
-  description: string;
+  name: string;
+  picture_small: string;
+  picture_medium: string;
   picture_big: string;
 }
 
-export interface DeezerPodcastResponse {
-  data: Podcast[];
-}
-
-export interface Episode {
-  id: number;
-  title: string;
-  link: string;
-  preview: string;
-  duration: number;
-  time_add: number;
-}
-
-export interface DeezerEpisodeResponse {
-  data: Episode[];
+export interface DeezerArtistsResponse {
+  data: Artist[];
 }
 
 export const musicApi = createApi({
@@ -69,16 +57,16 @@ export const musicApi = createApi({
       query: (albumId) => `album/${albumId}`,
     }),
 
-    getPodcast: builder.query<DeezerPodcastResponse, void>({
-      query: () => "chart/0/podcasts",
+    getChartArtists: builder.query<DeezerArtistsResponse, void>({
+      query: () => "chart/0/artists",
     }),
 
-    getPodcastDetails: builder.query<Podcast, number>({
-      query: (podcastId) => `podcast/${podcastId}`,
+    getArtistTracks: builder.query<DeezerAlbumsTracksResponse, number>({
+      query: (artistId) => `artist/${artistId}/top`,
     }),
 
-    getPodcastEpisode: builder.query<DeezerEpisodeResponse, number>({
-      query: (podcastId) => `podcast/${podcastId}/episodes`,
+    getArtistDetails: builder.query<Artist, number>({
+      query: (artistId) => `artist/${artistId}`,
     }),
   }),
 });
@@ -87,7 +75,7 @@ export const {
   useGetChartAlbumsQuery,
   useGetAlbumTracksQuery,
   useGetAlbumDetailsQuery,
-  useGetPodcastQuery,
-  useGetPodcastEpisodeQuery,
-  useGetPodcastDetailsQuery,
+  useGetChartArtistsQuery,
+  useGetArtistTracksQuery,
+  useGetArtistDetailsQuery,
 } = musicApi;
