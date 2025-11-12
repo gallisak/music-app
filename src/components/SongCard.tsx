@@ -2,14 +2,20 @@ interface SongCardProps {
   photo: string | undefined;
   title: string;
   description: string;
+  className?: string;
 }
 
-export function SongCard({ photo, title, description }: SongCardProps) {
+export function SongCard({
+  photo,
+  title,
+  description,
+  className,
+}: SongCardProps) {
   return (
     <>
       <div>
         <div
-          className={`h-15 border-b-2 flex w-full ml-0 lg:ml-50 bg-[#232323] overflow-hidden hover:brightness-70`}
+          className={`h-15 border-b-2 flex w-full ${className} ml-0 lg:ml-50 bg-[#232323] overflow-hidden hover:brightness-70`}
         >
           <div className="h-full ml-5 flex justify-start items-center">
             <img src={photo} className="h-10 w-10 relative rounded-md" alt="" />

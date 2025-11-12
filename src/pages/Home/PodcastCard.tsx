@@ -26,7 +26,7 @@ export function PodcastCard() {
         return (
           <Link
             key={podcast.id}
-            to="/Podcast"
+            to={`/Podcast/${podcast.id}`}
             className="shrink-0 flex h-full relative w-113 overflow-hidden rounded-2xl ml-3 hover:brightness-70"
           >
             <img

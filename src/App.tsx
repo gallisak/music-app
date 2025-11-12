@@ -14,7 +14,7 @@ function App() {
         <Route path="/Library" element={<LibraryPage />} />
         <Route path="/LikedSongs" element={<LikedSongsPage />} />
         <Route path="/PlayList/:albumId" element={<PlayListOpen />} />
-        <Route path="/Podcast" element={<PodcastOpen />} />
+        <Route path="/Podcast/:podcastId" element={<PodcastOpen />} />
       </Routes>
     </>
   );
