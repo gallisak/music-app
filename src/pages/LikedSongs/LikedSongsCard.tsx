@@ -1,5 +1,5 @@
-import { SongCard } from "../../../components/SongCard";
-import cover from "../../../assets/images/Cover.png";
+import { SongCard } from "../../components/SongCard";
+import cover from "../../assets/images/Cover.png";
 
 export function LikedSongsCard() {
   return (

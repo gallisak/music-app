@@ -1,7 +1,7 @@
-import { ControlMobileBar } from "../../../components/ControlMobileBar";
-import { FriendsBar } from "../../../components/FriendsBar";
-import { Header } from "../../../components/Header";
-import { SideBar } from "../../../components/SideBar";
+import { ControlMobileBar } from "../../components/ControlMobileBar";
+import { FriendsBar } from "../../components/FriendsBar";
+import { Header } from "../../components/Header";
+import { SideBar } from "../../components/SideBar";
 import { LikedSongsFlex } from "./LikedSongsFlex";
 
 export function LikedSongsPage() {

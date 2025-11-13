@@ -1,8 +1,8 @@
-import { FriendsBar } from "../../../components/FriendsBar";
-import { Header } from "../../../components/Header";
-import { SideBar } from "../../../components/SideBar";
+import { FriendsBar } from "../../components/FriendsBar";
+import { Header } from "../../components/Header";
+import { SideBar } from "../../components/SideBar";
 import { PersonalPlayListCardFlex } from "./PersonalPlaylistCardFlex";
-import { ControlMobileBar } from "../../../components/ControlMobileBar";
+import { ControlMobileBar } from "../../components/ControlMobileBar";
 
 export function LibraryPage() {
   return (

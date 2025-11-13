@@ -1,4 +1,4 @@
-import cover from "../../../assets/images/Cover.png";
+import cover from "../../assets/images/Cover.png";
 
 export function PersonalPlayListCard() {
   return (
