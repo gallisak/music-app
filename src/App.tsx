@@ -5,6 +5,7 @@ import { LibraryPage } from "./pages/Library/LibraryPage";
 import { LikedSongsPage } from "./pages/LikedSongs/LikedSongsPage";
 import { PlayListOpen } from "./pages/Home/PlayListOpen";
 import { ArtistCardOpen } from "./pages/Home/ArtistCardOpen";
+import { Page404 } from "./pages/404/Page404";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/LikedSongs" element={<LikedSongsPage />} />
         <Route path="/PlayList/:albumId" element={<PlayListOpen />} />
         <Route path="/Artist/:artistId" element={<ArtistCardOpen />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </>
   );
