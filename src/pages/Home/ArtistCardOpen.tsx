@@ -67,15 +67,15 @@ export function ArtistCardOpen() {
           className="h-35 w-35 my-3 rounded-2xl"
           alt=""
         />
-        <h1 className="text-white text-[20px]">{dataArtist?.name}</h1>
+        <h1 className="text-white mb-5 text-[20px]">{dataArtist?.name}</h1>
       </div>
 
       {data?.data?.map((track) => {
         return (
           <SongCard
             key={track.id}
-            className="h-fit pb-5 pt-5"
-            photo={track.album.cover_small}
+            className="h-fit pb-1 pt-2"
+            photo={track.album.cover}
             title={track.title}
             description={`${dataArtist?.name} • ${track.title}`}
           />

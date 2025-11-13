@@ -13,16 +13,22 @@ export function SongCard({
 }: SongCardProps) {
   return (
     <>
-      <div>
+      <div className=" lg:mr-100">
         <div
-          className={`h-15 border-b-2 flex w-full ${className} ml-0 lg:ml-50 bg-[#232323] overflow-hidden hover:brightness-70`}
+          className={`h-15 border-b-2 flex w-full ${className} ml-0 lg:ml-50   bg-[#232323] overflow-hidden hover:brightness-70`}
         >
           <div className="h-full ml-5 flex justify-start items-center">
-            <img src={photo} className="h-10 w-10 relative rounded-md" alt="" />
+            <img
+              src={photo}
+              className="h-10 shrink-0 w-10 relative rounded-md"
+              alt=""
+            />
           </div>
-          <div className=" relative z-0 flex flex-col justify-center">
-            <h1 className="text-white text-[18px]  ml-6">{title}</h1>
-            <p className="text-gray-400 ml-6 mr-6 text-[12px]">{description}</p>
+          <div className=" relative z-0 flex flex-col min-w-0 justify-center">
+            <h1 className="text-white text-[18px] truncate ml-6">{title}</h1>
+            <p className="text-gray-400 ml-6 mr-6 truncate text-[12px]">
+              {description}
+            </p>
           </div>
         </div>
       </div>

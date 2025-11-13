@@ -16,7 +16,7 @@ export interface AlbumTracks {
   title: string;
   preview: string;
   album: {
-    cover_small: string;
+    cover: string;
   };
   artist: {
     name: string;
