@@ -21,7 +21,7 @@ export function ControlMobileBar() {
           className="flex flex-col text-[10px] justify-center items-center"
           to="/Library"
         >
-          <img src={libraryIcon} className="w-6" alt="Home Icon" />
+          <img src={libraryIcon} className="w-6" alt="Library Icon" />
           <p className="text-white">Your Library</p>
         </Link>
       </div>
@@ -29,14 +29,14 @@ export function ControlMobileBar() {
         className="flex flex-col text-[10px] justify-center items-center"
         to="/LikedSongs"
       >
-        <img src={headphones} className="w-6" alt="Home Icon" />
+        <img src={headphones} className="w-6" alt="Liked songs Icon" />
         <p className="text-white">Liked Songs</p>
       </Link>
       <Link
         className="flex flex-col text-[10px] justify-center items-center mr-5"
         to=""
       >
-        <img src={addMusic} className="w-6" alt="Home Icon" />
+        <img src={addMusic} className="w-6" alt="Create Playlist Icon" />
         <p className="text-white">Create Playlist</p>
       </Link>
     </div>

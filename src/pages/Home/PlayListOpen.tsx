@@ -43,7 +43,7 @@ export function PlayListOpen() {
           <img
             src={albumDetails?.cover_big}
             className="h-35 w-35 my-3 rounded-xl"
-            alt=""
+            alt="album photo"
           />
           <h1 className="text-white text-[20px] mb-2">{albumDetails?.title}</h1>
         </div>

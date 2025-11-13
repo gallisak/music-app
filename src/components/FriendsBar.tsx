@@ -3,7 +3,7 @@ import { SuggestToFollowCard } from "./SuggestToFollowCard";
 
 export function FriendsBar() {
   return (
-    <aside className="bg-[#2A2A2A]/30 backdrop-blur-2xl fixed hidden top-0 z-1 lg:block h-full w-50 right-0">
+    <aside className="bg-[#2A2A2A]/30 backdrop-blur-2xl fixed hidden top-0 z-1 overflow-y-auto scrollbar-none lg:block h-full w-50 right-0">
       <div className="mt-25">
         <h1 className="ml-6 mt-3 text-white text-[18px]">
           Friend’s Listening To

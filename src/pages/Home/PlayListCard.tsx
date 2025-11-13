@@ -33,13 +33,13 @@ export function PlayListCard() {
               <img
                 src={album.cover_big}
                 className="absolute w-full h-full brightness-25"
-                alt=""
+                alt="album photo"
               />
               <div className="h-45 flex justify-center">
                 <img
                   src={album.cover_big}
                   className="h-47 w-45 mt-5 rounded-xl relative"
-                  alt=""
+                  alt="album photo"
                 />
               </div>
               <div className="h-35 z-0 relative flex flex-col justify-center">

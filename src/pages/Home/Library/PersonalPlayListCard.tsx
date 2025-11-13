@@ -5,7 +5,11 @@ export function PersonalPlayListCard() {
     <div>
       <div className="h-30 border-b-2 flex w-full bg-[#232323] overflow-hidden hover:brightness-70">
         <div className="h-full ml-5 flex justify-start items-center">
-          <img src={cover} className="h-26 w-26 relative" alt="" />
+          <img
+            src={cover}
+            className="h-26 w-26 relative"
+            alt="playlist photo"
+          />
         </div>
         <div className=" relative z-0 flex flex-col justify-center">
           <h1 className="text-white text-[25px] mb-5 ml-6">My music</h1>

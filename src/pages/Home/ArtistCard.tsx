@@ -32,13 +32,13 @@ export function ArtistCard() {
             <img
               src={artist.picture_big}
               className="absolute rounded-md w-full h-41 brightness-25"
-              alt=""
+              alt="artist's photo"
             />
             <div className="h-45 ml-2 flex w-full ">
               <img
                 src={artist.picture_big}
                 className="h-37 w-45 rounded-xl mt-2 relative"
-                alt=""
+                alt="artist's photo"
               />
               <div className="flex flex-col">
                 <div className="flex">

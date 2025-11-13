@@ -65,7 +65,7 @@ export function ArtistCardOpen() {
         <img
           src={dataArtist?.picture_big}
           className="h-35 w-35 my-3 rounded-2xl"
-          alt=""
+          alt="artist's photo"
         />
         <h1 className="text-white mb-5 text-[20px]">{dataArtist?.name}</h1>
       </div>

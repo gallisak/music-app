@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export function SideBar() {
   return (
-    <aside className="bg-[#333333] fixed z-10 hidden lg:flex  w-50 h-full  flex-col top-0">
+    <aside className="bg-[#333333] fixed z-10 hidden lg:flex  w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
       <div className="flex items-center justify-center flex-col">
         <Link to="/" className="text-3xl font-bold text-[#1ED760] mt-3">
           Music-app
@@ -18,19 +18,19 @@ export function SideBar() {
       </div>
       <div className="ml-5 mt-5 text-[#ACACAC]">
         <div className="mb-3 flex gap-2 w-6 h-6 ">
-          <img src={homeIcon} alt="" />
+          <img src={homeIcon} alt="Home icon" />
           <Link className="hover:text-[#ffffff]" to="/">
             Home
           </Link>
         </div>
         <div className="mb-3 flex gap-2">
-          <img src={libraryIcon} alt="" />
+          <img src={libraryIcon} alt="Library Icon" />
           <Link className="hover:text-[#ffffff]" to="/Library">
             Your Library
           </Link>
         </div>
         <div className="mb-3 flex gap-2">
-          <img src={headphones} alt="" />
+          <img src={headphones} alt="Liked songs Icon" />
           <Link className="hover:text-[#ffffff]" to="/LikedSongs">
             Liked Songs
           </Link>
@@ -38,7 +38,7 @@ export function SideBar() {
       </div>
 
       <button className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl hover:brightness-70">
-        <img className="" src={addMusic} alt="" />
+        <img className="" src={addMusic} alt="Create Playlist Icon" />
         Create Playlist
       </button>
       <div className="w-41 mt-3 ml-4 border-[#464646] border-b-2 h-2"></div>
@@ -54,13 +54,17 @@ export function SideBar() {
       </div>
 
       <div className="flex flex-col justify-between items-center text-white">
-        <img className="w-40 h-40" src={PhotoMusic} alt="" />
+        <img
+          className="w-40 h-40"
+          src={PhotoMusic}
+          alt="photo of the song that is playing now"
+        />
         <div className="w-39 mt-3">
           <h1 className="font-bold text-[20px]">Delivery</h1>
           <div className="flex gap-4">
             <p className="text-[10px]">Ze-De, Board-Man</p>
-            <img src={airPlay} alt="" />
-            <img src={like} alt="" />
+            <img src={airPlay} alt="airPlay icon" />
+            <img src={like} alt="like icon" />
           </div>
         </div>
       </div>
