@@ -10,7 +10,7 @@ export function LikedSongsPage() {
       <Header />
       <SideBar />
       <FriendsBar />
-      <div className="h-80 ml-0 lg:ml-47 lg:mt-20 flex">
+      <div className="h-80 ml-0  lg:mt-20 flex">
         <LikedSongsFlex />
       </div>
       <div>

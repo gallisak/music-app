@@ -27,7 +27,7 @@ export function HomePage() {
         <ArtistCardFlex />
       </div>
 
-      <div>
+      <div className="mt-20">
         <ControlMobileBar />
       </div>
     </>

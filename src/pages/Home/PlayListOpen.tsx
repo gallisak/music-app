@@ -53,6 +53,7 @@ export function PlayListOpen() {
         tracksData.data.map((track) => {
           return (
             <SongCard
+              className="h-fit ml-0 lg:ml-50 w-full pb-1 pt-2 "
               key={track.id}
               photo={albumDetails?.cover_small}
               title={track.title}

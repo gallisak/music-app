@@ -13,9 +13,9 @@ export function SongCard({
 }: SongCardProps) {
   return (
     <>
-      <div className=" lg:mr-100">
+      <div className="lg:mr-100">
         <div
-          className={`h-15 border-b-2 flex w-full ${className} ml-0 lg:ml-50   bg-[#232323] overflow-hidden hover:brightness-70`}
+          className={`h-15 border-b-2 flex   ${className} bg-[#232323] overflow-hidden hover:brightness-70`}
         >
           <div className="h-full ml-5 flex justify-start items-center">
             <img
