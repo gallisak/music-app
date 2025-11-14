@@ -6,6 +6,9 @@ import PhotoMusic from "../assets/images/Cover Album.png";
 import airPlay from "../assets/images/AirPlay.png";
 import like from "../assets/images/Active.png";
 import { Link } from "react-router-dom";
+import playblack from "../assets/images/playblack.png";
+import next from "../assets/images/free-icon-next-724956.png";
+import back from "../assets/images/free-icon-back-724956.png";
 
 export function SideBar() {
   return (
@@ -55,10 +58,22 @@ export function SideBar() {
 
       <div className="flex flex-col justify-between items-center text-white">
         <img
-          className="w-40 h-40"
+          className="w-40 relative h-40"
           src={PhotoMusic}
           alt="photo of the song that is playing now"
         />
+        <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
+          <button className="bg-white h-6 w-6 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+            <img className="h-2 w-2" src={back} alt="" />
+          </button>
+          <button className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+            <img className="h-3 w-3" src={playblack} alt="play icon" />
+          </button>
+          <button className="bg-white h-6 w-6 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+            <img className="h-2 w-2" src={next} alt="" />
+          </button>
+        </div>
+
         <div className="w-39 mt-3">
           <h1 className="font-bold text-[20px]">Delivery</h1>
           <div className="flex gap-4">

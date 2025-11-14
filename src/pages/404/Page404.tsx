@@ -16,7 +16,7 @@ export function Page404() {
           <h1 className="font-bold text-[50px] text-nowrap lg:text-[140px]">
             E R R O R
           </h1>
-          <h1 className="font-bold text-[30px] text-nowrap lg:text-[100px]">
+          <h1 className="font-bold text-[30px] text-nowrap lg:text-[80px]">
             PAGE NOT FOUND
           </h1>
         </div>
