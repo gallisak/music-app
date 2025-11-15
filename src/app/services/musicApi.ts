@@ -42,7 +42,7 @@ export interface DeezerArtistsResponse {
 export const musicApi = createApi({
   reducerPath: "musicApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://corsproxy.io/?https://api.deezer.com/",
+    baseUrl: "/api/",
   }),
   endpoints: (builder) => ({
     getChartAlbums: builder.query<DeezerAlbumsResponse, void>({
