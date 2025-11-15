@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { musicApi } from "./services/musicApi";
 
+import PlayerReducer from "./features/player/playerSlice";
+
 export const store = configureStore({
   reducer: {
+    player: PlayerReducer,
+
     [musicApi.reducerPath]: musicApi.reducer,
   },
 

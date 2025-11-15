@@ -7,12 +7,42 @@ import airPlay from "../assets/images/AirPlay.png";
 import like from "../assets/images/Active.png";
 import { Link } from "react-router-dom";
 import playblack from "../assets/images/playblack.png";
+import stopblack from "../assets/images/free-icon-pause-button-3249396.png";
 import next from "../assets/images/free-icon-next-724956.png";
 import back from "../assets/images/free-icon-back-724956.png";
+import { useRef, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { play, pause } from "../app/features/player/playerSlice";
 
 export function SideBar() {
+  const { currentTrack, isPlaying } = useAppSelector((state) => state.player);
+  const dispatch = useAppDispatch();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (audioRef.current && currentTrack) {
+      audioRef.current.src = currentTrack.preview;
+      try {
+        audioRef.current.play();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [currentTrack]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
   return (
     <aside className="bg-[#333333] fixed z-10 hidden lg:flex  w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
+      <audio className="hidden" ref={audioRef}></audio>
       <div className="flex items-center justify-center flex-col">
         <Link to="/" className="text-3xl font-bold text-[#1ED760] mt-3">
           Music-app
@@ -56,33 +86,68 @@ export function SideBar() {
         <p className="mb-3 hover:text-[#ffffff]">Best Gaming Music </p>
       </div>
 
-      <div className="flex flex-col justify-between items-center text-white">
-        <img
-          className="w-40 relative h-40"
-          src={PhotoMusic}
-          alt="photo of the song that is playing now"
-        />
-        <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
-          <button className="bg-white h-6 w-6 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-            <img className="h-2 w-2" src={back} alt="" />
-          </button>
-          <button className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-            <img className="h-3 w-3" src={playblack} alt="play icon" />
-          </button>
-          <button className="bg-white h-6 w-6 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-            <img className="h-2 w-2" src={next} alt="" />
-          </button>
-        </div>
+      {currentTrack ? (
+        <div className="flex flex-col justify-between items-center text-white">
+          <img
+            className="w-40 rounded-2xl relative h-40"
+            src={currentTrack?.coverUrl}
+            alt="photo of the song that is playing now"
+          />
 
-        <div className="w-39 mt-3">
-          <h1 className="font-bold text-[20px]">Delivery</h1>
-          <div className="flex gap-4">
-            <p className="text-[10px]">Ze-De, Board-Man</p>
-            <img src={airPlay} alt="airPlay icon" />
-            <img src={like} alt="like icon" />
+          <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
+            <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+              <img className="h-2 w-2" src={back} alt="" />
+            </button>
+
+            <button
+              onClick={() => dispatch(isPlaying ? pause() : play())}
+              className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70"
+            >
+              {isPlaying ? (
+                <img className="h-3 w-3" src={stopblack} alt="play icon" />
+              ) : (
+                <img className="h-3 w-3" src={playblack} alt="play icon" />
+              )}
+            </button>
+
+            <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+              <img className="h-2 w-2" src={next} alt="" />
+            </button>
+          </div>
+
+          <div className="w-39 mt-3">
+            <h1 className="font-bold text-[20px]">{currentTrack?.title}</h1>
+            <div className="flex gap-4">
+              <p className="text-[10px]">{currentTrack?.artistName}</p>
+              <img src={airPlay} alt="airPlay icon" />
+              <img src={like} alt="like icon" />
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="flex flex-col justify-between items-center text-white">
+          <img
+            className="w-40 rounded-2xl relative h-40"
+            src={PhotoMusic}
+            alt="photo of the song that is playing now"
+          />
+
+          <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
+            <button className="bg-white h-6 w-6 rounded-full border-2 border-black flex justify-center items-center cursor-pointer hover:brightness-70">
+              <img className="h-2 w-2" src={back} alt="" />
+            </button>
+
+            <button className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+              <img className="h-3 w-3" src={playblack} alt="play icon" />
+            </button>
+
+            <button className="bg-white h-6 w-6 rounded-full flex border-2 border-black justify-center items-center cursor-pointer hover:brightness-70">
+              <img className="h-2 w-2" src={next} alt="" />
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="h-8 mt-6 bg-green-400 flex  justify-center items-center">
         <p className="font-bold text-[12px]">
           Now Playing on Samsung S22 Ultra

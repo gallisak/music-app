@@ -78,6 +78,7 @@ export function ArtistCardOpen() {
             photo={track.album.cover}
             title={track.title}
             description={`${dataArtist?.name} • ${track.title}`}
+            track={track}
           />
         );
       })}

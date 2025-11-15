@@ -1,10 +1,17 @@
 import play from "../assets/images/play.png";
+import { type AlbumTracks } from "../app/services/musicApi";
+import { useAppDispatch } from "../app/hooks";
+import {
+  setCurrentTrack,
+  type ActiveTrack,
+} from "../app/features/player/playerSlice";
 
 interface SongCardProps {
   photo: string | undefined;
   title: string;
   description: string;
   className?: string;
+  track: AlbumTracks;
 }
 
 export function SongCard({
@@ -12,7 +19,22 @@ export function SongCard({
   title,
   description,
   className,
+  track,
 }: SongCardProps) {
+  const dispatch = useAppDispatch();
+
+  const handlePlayClick = () => {
+    const activeTrackData: ActiveTrack = {
+      id: track.id,
+      title: title,
+      preview: track.preview,
+      artistName: description,
+      coverUrl: photo || "",
+    };
+
+    dispatch(setCurrentTrack(activeTrackData));
+  };
+
   return (
     <>
       <div className="lg:mr-100">
@@ -28,6 +50,7 @@ export function SongCard({
               />
 
               <div
+                onClick={handlePlayClick}
                 className={`absolute inset-0 
                   flex items-center justify-center 
                   bg-black bg-opacity-40 

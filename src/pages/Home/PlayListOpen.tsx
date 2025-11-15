@@ -55,9 +55,10 @@ export function PlayListOpen() {
             <SongCard
               className="h-fit ml-0 lg:ml-50 w-full pb-1 pt-2 "
               key={track.id}
-              photo={albumDetails?.cover_small}
+              photo={albumDetails?.cover_big}
               title={track.title}
               description={track.artist.name}
+              track={track}
             />
           );
         })}
