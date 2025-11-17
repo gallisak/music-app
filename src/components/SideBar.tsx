@@ -10,11 +10,13 @@ import playblack from "../assets/images/playblack.png";
 import stopblack from "../assets/images/free-icon-pause-button-3249396.png";
 import next from "../assets/images/free-icon-next-724956.png";
 import back from "../assets/images/free-icon-back-724956.png";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { play, pause } from "../app/features/player/playerSlice";
+import { Modal } from "./Modal";
 
 export function SideBar() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { currentTrack, isPlaying } = useAppSelector((state) => state.player);
   const dispatch = useAppDispatch();
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -85,10 +87,30 @@ export function SideBar() {
         </div>
       </div>
 
-      <button className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl hover:brightness-70">
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl hover:brightness-70"
+      >
         <img className="" src={addMusic} alt="Create Playlist Icon" />
         Create Playlist
       </button>
+
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <div className="mt-10 flex flex-col items-center">
+            <h1 className="mb-5 text-white text-[25px]">Create Playlist</h1>
+            <input
+              type="text"
+              placeholder="Search"
+              className="ml-3 rounded-4xl bg-[#2A2A2A] p-3 pl-6 w-full lg:w-175 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+            />
+            <button className="mt-5 text-white pl-10 pr-10 pt-3 pb-3 rounded-2xl bg-[#000000] cursor-pointer hover:bg-[#454545]">
+              Search
+            </button>
+          </div>
+        </Modal>
+      )}
+
       <div className="w-41 mt-3 ml-4 border-[#464646] border-b-2 h-2"></div>
 
       <div className="ml-5 mt-5 text-[#ACACAC]">
