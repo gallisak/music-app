@@ -51,6 +51,26 @@ export function Header() {
               alt="menu button"
             />
           </div>
+          <div
+            className={`
+                  lg:w-42 w-30 bg-[#7d7d7d] ml-4 mt-29 rounded-2xl
+                  overflow-hidden            
+                  transition-all duration-300 ease-in-out origin-top
+                  ${isOpen ? " max-w-42 " : " max-w-0"} 
+                `}
+          >
+            <div className="h-40 flex flex-col justify-center text-[18px]">
+              <span className="w-full h-1/3 flex flex-col justify-center items-center hover:bg-[#363636]">
+                <a href="/">Profile</a>
+              </span>
+              <span className="w-full h-1/3 flex flex-col justify-center items-center hover:bg-[#363636]">
+                <a href="/">Settings</a>
+              </span>
+              <span className="w-full h-1/3 flex flex-col justify-center items-center hover:bg-[#363636]">
+                <button>Log Out</button>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </header>
