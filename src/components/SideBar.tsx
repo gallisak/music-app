@@ -22,10 +22,17 @@ export function SideBar() {
   useEffect(() => {
     if (audioRef.current && currentTrack) {
       audioRef.current.src = currentTrack.preview;
-      try {
-        audioRef.current.play();
-      } catch (error) {
-        console.log(error);
+
+      const playPromise = audioRef.current.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          if (error.name === "AbortError") {
+            console.log("Audio play() was aborted by new request.");
+          } else {
+            console.warn("Autoplay was blocked:", error);
+          }
+        });
       }
     }
   }, [currentTrack]);
@@ -33,7 +40,15 @@ export function SideBar() {
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.play();
+        const playPromise = audioRef.current.play();
+
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            if (error.name !== "AbortError") {
+              console.warn("Play blocked:", error);
+            }
+          });
+        }
       } else {
         audioRef.current.pause();
       }
@@ -41,7 +56,7 @@ export function SideBar() {
   }, [isPlaying]);
 
   return (
-    <aside className="bg-[#333333] fixed z-10 hidden lg:flex  w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
+    <aside className="bg-[#333333] fixed z-11 hidden lg:flex  w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
       <audio className="hidden" ref={audioRef}></audio>
       <div className="flex items-center justify-center flex-col">
         <Link to="/" className="text-3xl font-bold text-[#1ED760] mt-3">
@@ -96,7 +111,7 @@ export function SideBar() {
 
           <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
             <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={back} alt="" />
+              <img className="h-2 w-2" src={back} alt="back icon" />
             </button>
 
             <button
@@ -111,16 +126,16 @@ export function SideBar() {
             </button>
 
             <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={next} alt="" />
+              <img className="h-2 w-2" src={next} alt="back next" />
             </button>
           </div>
 
           <div className="w-39 mt-3">
             <h1 className="font-bold text-[20px]">{currentTrack?.title}</h1>
-            <div className="flex gap-4">
+            <div className="flex justify-between items-center gap-4">
               <p className="text-[10px]">{currentTrack?.artistName}</p>
-              <img src={airPlay} alt="airPlay icon" />
-              <img src={like} alt="like icon" />
+              <img className="w-5 h-5" src={airPlay} alt="airPlay icon" />
+              <img className="w-5 h-5" src={like} alt="like icon" />
             </div>
           </div>
         </div>
@@ -134,7 +149,7 @@ export function SideBar() {
 
           <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
             <button className="bg-white h-6 w-6 rounded-full border-2 border-black flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={back} alt="" />
+              <img className="h-2 w-2" src={back} alt="back icon" />
             </button>
 
             <button className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
@@ -142,7 +157,7 @@ export function SideBar() {
             </button>
 
             <button className="bg-white h-6 w-6 rounded-full flex border-2 border-black justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={next} alt="" />
+              <img className="h-2 w-2" src={next} alt="back next" />
             </button>
           </div>
         </div>

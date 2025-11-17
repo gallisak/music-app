@@ -1,7 +1,6 @@
 import { ControlMobileBar } from "../../components/ControlMobileBar";
 import { FriendsBar } from "../../components/FriendsBar";
 import { Header } from "../../components/Header";
-import { SideBar } from "../../components/SideBar";
 import { SongCard } from "../../components/SongCard";
 import { useParams } from "react-router-dom";
 import {
@@ -36,7 +35,6 @@ export function PlayListOpen() {
   return (
     <>
       <Header />
-      <SideBar />
       <FriendsBar />
       <div>
         <div className="flex flex-col justify-center items-center mt-20">
@@ -55,7 +53,7 @@ export function PlayListOpen() {
             <SongCard
               className="h-fit ml-0 lg:ml-50 w-full pb-1 pt-2 "
               key={track.id}
-              photo={albumDetails?.cover_big}
+              photo={albumDetails?.cover_xl}
               title={track.title}
               description={track.artist.name}
               track={track}

@@ -5,6 +5,7 @@ export interface Album {
   title: string;
   cover_big: string;
   cover_small: string;
+  cover_xl: string;
 }
 
 export interface DeezerAlbumsResponse {
@@ -16,7 +17,7 @@ export interface AlbumTracks {
   title: string;
   preview: string;
   album: {
-    cover: string;
+    cover_xl: string;
   };
   artist: {
     name: string;

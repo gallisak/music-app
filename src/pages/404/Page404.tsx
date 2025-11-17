@@ -1,13 +1,11 @@
 import { ControlMobileBar } from "../../components/ControlMobileBar";
 import { FriendsBar } from "../../components/FriendsBar";
 import { Header } from "../../components/Header";
-import { SideBar } from "../../components/SideBar";
 
 export function Page404() {
   return (
     <>
       <Header />
-      <SideBar />
       <FriendsBar />
 
       <div className="lg:mt-20 lg:mr-50 lg:ml-50">

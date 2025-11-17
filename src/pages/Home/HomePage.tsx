@@ -1,7 +1,6 @@
 import { ControlMobileBar } from "../../components/ControlMobileBar";
 import { FriendsBar } from "../../components/FriendsBar";
 import { Header } from "../../components/Header";
-import { SideBar } from "../../components/SideBar";
 import { PlayListCardGrid } from "./PlayListCardFlex";
 import { ArtistCardFlex } from "./ArtistCardFlex";
 
@@ -9,7 +8,6 @@ export function HomePage() {
   return (
     <>
       <Header />
-      <SideBar />
       <FriendsBar />
       <h1 className="mb-5 mt-25 ml-5 lg:ml-54 text-white text-[34px]">
         Hot Today
