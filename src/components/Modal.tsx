@@ -1,6 +1,6 @@
-// src/components/Modal.tsx
 import React from "react";
 import { createPortal } from "react-dom";
+import closeIcon from "../assets/images/close-icon.png";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -17,10 +17,10 @@ export function Modal({ children, onClose }: ModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-[#333333] border-4 border-green-500 p-6 rounded-lg shadow-lg"
+        className="bg-[#333333] border-4 border-green-500 p-6 rounded-4xl shadow-lg"
       >
         <button onClick={onClose} className="float-right">
-          X
+          <img className="w-6 h-6 cursor-pointer" src={closeIcon} alt="" />
         </button>
         {children}
       </div>

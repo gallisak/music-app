@@ -89,7 +89,7 @@ export function SideBar() {
 
       <button
         onClick={() => setIsModalOpen(true)}
-        className="flex p-3 bg-linear-to-bl gap-3 text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl hover:brightness-70"
+        className="flex p-3 bg-linear-to-bl gap-3 cursor-pointer text-white from-[#1ED760] to-[#14612F] ml-3 mr-4 mt3 rounded-4xl hover:brightness-70"
       >
         <img className="" src={addMusic} alt="Create Playlist Icon" />
         Create Playlist
