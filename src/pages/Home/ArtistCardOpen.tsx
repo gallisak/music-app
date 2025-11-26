@@ -1,5 +1,5 @@
 import { ControlMobileBar } from "../../components/ControlMobileBar";
-import { FriendsBar } from "../../components/FriendsBar";
+import { HistoryBar } from "../../components/HistoryBar";
 import { Header } from "../../components/Header";
 import { SongCard } from "../../components/SongCard";
 import { useParams } from "react-router-dom";
@@ -57,7 +57,7 @@ export function ArtistCardOpen() {
   return (
     <>
       <Header />
-      <FriendsBar />
+      <HistoryBar />
 
       <div className="flex flex-col justify-center items-center mt-20">
         <img

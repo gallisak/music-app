@@ -1,12 +1,12 @@
 import { ControlMobileBar } from "../../components/ControlMobileBar";
-import { FriendsBar } from "../../components/FriendsBar";
+import { HistoryBar } from "../../components/HistoryBar";
 import { Header } from "../../components/Header";
 
 export function Page404() {
   return (
     <>
       <Header />
-      <FriendsBar />
+      <HistoryBar />
 
       <div className="lg:mt-20 lg:mr-50 lg:ml-50">
         <div className="h-150 w-full flex flex-col justify-center items-center">

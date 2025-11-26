@@ -1,5 +1,5 @@
 import { ControlMobileBar } from "../../components/ControlMobileBar";
-import { FriendsBar } from "../../components/FriendsBar";
+import { HistoryBar } from "../../components/HistoryBar";
 import { Header } from "../../components/Header";
 import { SongCard } from "../../components/SongCard";
 import { useParams } from "react-router-dom";
@@ -35,15 +35,27 @@ export function PlayListOpen() {
   return (
     <>
       <Header />
-      <FriendsBar />
+      <HistoryBar />
       <div>
-        <div className="flex flex-col justify-center items-center mt-20">
+        <div className="flex justify-start items-start lg:ml-55 ml-5  mt-20">
           <img
             src={albumDetails?.cover_big}
             className="h-35 w-35 my-3 rounded-xl"
             alt="album photo"
           />
-          <h1 className="text-white text-[20px] mb-2">{albumDetails?.title}</h1>
+          <div>
+            <h1 className="text-white text-[20px] ml-5 mt-5 mb-2">
+              {albumDetails?.title}
+            </h1>
+            {tracksData &&
+              tracksData.data.slice(0, 1).map((artist) => {
+                return (
+                  <h1 key={artist.id} className="text-white ml-5 mt-5 mb-2">
+                    {artist.artist.name}
+                  </h1>
+                );
+              })}
+          </div>
         </div>
       </div>
 
