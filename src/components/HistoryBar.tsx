@@ -26,9 +26,11 @@ export function HistoryBar() {
           ))}
         </div>
       ) : (
-        <p className="text-gray-400 text-sm">
-          You haven't played any songs yet.
-        </p>
+        <span className="w-full flex justify-center">
+          <p className="text-white font-bold mb-4 ml-2 text-sm ">
+            You haven't played any songs yet.
+          </p>
+        </span>
       )}
     </aside>
   );

@@ -6,10 +6,11 @@ interface upgradeButton {
 }
 
 export function UpgradeButton({ className }: upgradeButton) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  let [isModalOpen, setIsModalOpen] = useState(false);
   const [showCVV, setShowCVV] = useState(false);
-  const [cardNumber, setCardNumber] = useState("");
-  const [date, setDate] = useState("");
+  let [cardNumber, setCardNumber] = useState("");
+  let [date, setDate] = useState("");
+  let [cvv, setCvv] = useState("");
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace(/\D/g, "");
@@ -29,6 +30,31 @@ export function UpgradeButton({ className }: upgradeButton) {
     const formattedValue = rawValue.replace(/(\d{2})(?=\d)/g, "$1/");
 
     setDate(formattedValue);
+  };
+
+  const handleCvv = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value.replace(/\D/g, "");
+    if (raw.length > 3) return;
+
+    setCvv(raw);
+  };
+
+  const validation = () => {
+    if (cardNumber === "" || date === "" || cvv === "") {
+      alert("Fill in the bank card details");
+    } else if (cardNumber.length < 19) {
+      alert("Enter your full credit card number");
+    } else if (date.length < 5) {
+      alert("Enter the full date of the bank card");
+    } else if (cvv.length < 3) {
+      alert("Enter the full CVV");
+    } else {
+      alert("Payment was successful");
+      setIsModalOpen((isModalOpen = false));
+      setCardNumber("");
+      setDate("");
+      setCvv("");
+    }
   };
 
   return (
@@ -70,6 +96,8 @@ export function UpgradeButton({ className }: upgradeButton) {
 
             <div className="w-1/2 relative">
               <input
+                value={cvv}
+                onChange={handleCvv}
                 type={showCVV ? "text" : "password"}
                 placeholder="CVV"
                 maxLength={3}
@@ -86,7 +114,10 @@ export function UpgradeButton({ className }: upgradeButton) {
             </div>
           </div>
 
-          <button className="cursor-pointer rounded-4xl mt-8 bg-[#2A2A2A] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 text-white font-bold transition-colors">
+          <button
+            onClick={validation}
+            className="cursor-pointer rounded-4xl mt-8 bg-[#2A2A2A] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 text-white font-bold transition-colors"
+          >
             Pay
           </button>
         </Modal>
