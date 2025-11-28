@@ -18,8 +18,12 @@ export const userSlice = createSlice({
       state.isPro = true;
       localStorage.setItem("isPro", "true");
     },
+    downgradeToFree: (state) => {
+      state.isPro = false;
+      localStorage.removeItem("isPro");
+    },
   },
 });
 
-export const { upgradeToPro } = userSlice.actions;
+export const { upgradeToPro, downgradeToFree } = userSlice.actions;
 export default userSlice.reducer;
