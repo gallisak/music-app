@@ -4,9 +4,12 @@ import left from "../assets/images/fe_arrow-left.png";
 import right from "../assets/images/fe_arrow-right.png";
 import { useState } from "react";
 import { UpgradeButton } from "./UpgradeButton";
+import { useAppSelector } from "../app/hooks";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const isPro = useAppSelector((state) => state.user.isPro);
 
   const handleProfile = () => {
     setIsOpen(!isOpen);
@@ -32,7 +35,15 @@ export function Header() {
           />
         </div>
 
-        <UpgradeButton className="hidden cursor-pointer lg:flex items-center justify-center rounded-3xl h-12 w-42 bg-[#2A2A2A] border-2 border-green-500 hover:brightness-70 text-white font-bold" />
+        <UpgradeButton
+          className={`${
+            isPro
+              ? "cursor-pointer hidden lg:block border-gold-500 text-green-500 mr-5 ml-5"
+              : "hidden cursor-pointer lg:flex items-center justify-center rounded-3xl h-12 w-42 bg-[#2A2A2A] border-2 border-green-500 hover:brightness-70 text-white font-bold"
+          }`}
+        >
+          {isPro ? "PRO ACCOUNT" : "UPGRADE"}
+        </UpgradeButton>
 
         <div className="relative ml-3">
           <div
@@ -72,7 +83,9 @@ export function Header() {
                 <button>Log Out</button>
               </span>
               <span className="lg:hidden ">
-                <UpgradeButton className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer" />
+                <UpgradeButton className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
+                  {isPro ? "PRO ACCOUNT" : "UPGRADE"}
+                </UpgradeButton>
               </span>
             </div>
           </div>

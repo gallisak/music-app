@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
+import { upgradeToPro } from "../app/features/user/userSlice";
+import { useAppDispatch } from "../app/hooks";
 
 interface upgradeButton {
   className: string;
+  children: string;
 }
 
-export function UpgradeButton({ className }: upgradeButton) {
+export function UpgradeButton({ className, children }: upgradeButton) {
   let [isModalOpen, setIsModalOpen] = useState(false);
   const [showCVV, setShowCVV] = useState(false);
   let [cardNumber, setCardNumber] = useState("");
   let [date, setDate] = useState("");
   let [cvv, setCvv] = useState("");
+  const dispatch = useAppDispatch();
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value.replace(/\D/g, "");
@@ -54,13 +58,14 @@ export function UpgradeButton({ className }: upgradeButton) {
       setCardNumber("");
       setDate("");
       setCvv("");
+      dispatch(upgradeToPro());
     }
   };
 
   return (
     <div className="flex items-center ">
       <div onClick={() => setIsModalOpen(true)} className={className}>
-        UPGRADE
+        {children}
       </div>
 
       {isModalOpen && (
