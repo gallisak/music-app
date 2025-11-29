@@ -7,6 +7,8 @@ import { useAppSelector } from "../app/hooks";
 import { Modal } from "./Modal";
 import { useAppDispatch } from "../app/hooks";
 import { signIn, logOut } from "../app/features/user/userSlice";
+import { loadUserHistory } from "../app/features/player/playerSlice";
+import { clearPlayerState } from "../app/features/player/playerSlice";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +76,8 @@ export function Header() {
     }
     setEmail("");
     setPassword("");
+
+    dispatch(loadUserHistory(user.email));
   };
 
   const handleRegister = () => {
@@ -161,7 +165,10 @@ export function Header() {
                       <a href="/">Settings</a>
                     </span>
                     <span
-                      onClick={() => dispatch(logOut())}
+                      onClick={() => {
+                        dispatch(logOut());
+                        dispatch(clearPlayerState());
+                      }}
                       className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer"
                     >
                       <button className="cursor-pointer">Log Out</button>
