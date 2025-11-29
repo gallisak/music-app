@@ -58,10 +58,17 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
   };
 
   const handleDowngrade = () => {
-    // Тут можна додати підтвердження ("Ви впевнені?")
-    alert("You have downgraded to the free plan.");
-    dispatch(downgradeToFree());
-    setIsModalOpen(false);
+    const confirmation = confirm(
+      "Are you sure you want to cancel your subscription?"
+    );
+
+    if (confirmation) {
+      alert("You have downgraded to the free plan");
+      dispatch(downgradeToFree());
+      setIsModalOpen(false);
+    } else {
+      return;
+    }
   };
 
   return (
@@ -70,10 +77,8 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
         {children}
       </div>
 
-      {/* Показуємо модалку, якщо вона відкрита */}
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          {/* --- ВАРІАНТ 1: ЮЗЕР ВЖЕ PRO (Downgrade) --- */}
           {isPro ? (
             <>
               <div className="flex justify-between items-center mb-5">
@@ -93,7 +98,6 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
               </button>
             </>
           ) : (
-            /* --- ВАРІАНТ 2: ЮЗЕР НЕ PRO (Upgrade Form) --- */
             <>
               <div className="flex justify-between items-center mb-5">
                 <h1 className="text-white lg:text-[25px]">Upgrade to pro</h1>

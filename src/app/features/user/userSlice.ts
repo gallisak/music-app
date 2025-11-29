@@ -1,13 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+
+export interface User {
+  password: string;
+  email: string;
+  name: string;
+}
 
 interface UserState {
   isPro: boolean;
+  isSignIn: boolean;
+  user: User | null;
 }
 
 const savedIsPro = localStorage.getItem("isPro");
+const savedUserJSON = localStorage.getItem("currentUser");
+
+const savedUser: User | null = savedUserJSON ? JSON.parse(savedUserJSON) : null;
 
 const initialState: UserState = {
   isPro: savedIsPro === "true",
+  isSignIn: !!savedUser,
+  user: savedUser,
 };
 
 export const userSlice = createSlice({
@@ -22,8 +35,23 @@ export const userSlice = createSlice({
       state.isPro = false;
       localStorage.removeItem("isPro");
     },
+
+    signIn: (state, action: PayloadAction<User>) => {
+      state.isSignIn = true;
+      state.user = action.payload;
+
+      localStorage.setItem("currentUser", JSON.stringify(action.payload));
+    },
+
+    logOut: (state) => {
+      state.isSignIn = false;
+      state.user = null;
+
+      localStorage.removeItem("currentUser");
+    },
   },
 });
 
-export const { upgradeToPro, downgradeToFree } = userSlice.actions;
+export const { upgradeToPro, downgradeToFree, signIn, logOut } =
+  userSlice.actions;
 export default userSlice.reducer;
