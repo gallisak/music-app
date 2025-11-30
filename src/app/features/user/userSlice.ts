@@ -39,14 +39,14 @@ export const userSlice = createSlice({
     signIn: (state, action: PayloadAction<User>) => {
       state.isSignIn = true;
       state.user = action.payload;
-
+      state.isPro = localStorage.getItem("isPro") === "true";
       localStorage.setItem("currentUser", JSON.stringify(action.payload));
     },
 
     logOut: (state) => {
       state.isSignIn = false;
       state.user = null;
-
+      state.isPro = false;
       localStorage.removeItem("currentUser");
     },
   },
