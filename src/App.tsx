@@ -7,6 +7,7 @@ import { PlayListOpen } from "./pages/Home/PlayListOpen";
 import { ArtistCardOpen } from "./pages/Home/ArtistCardOpen";
 import { Page404 } from "./pages/404/Page404";
 import { Layout } from "./components/Layout";
+import { SearchPage } from "./pages/Search/SearchPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/LikedSongs" element={<LikedSongsPage />} />
           <Route path="/PlayList/:albumId" element={<PlayListOpen />} />
           <Route path="/Artist/:artistId" element={<ArtistCardOpen />} />
+          <Route path="/search/:query" element={<SearchPage />} />
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>

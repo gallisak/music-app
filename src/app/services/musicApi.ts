@@ -69,6 +69,10 @@ export const musicApi = createApi({
     getArtistDetails: builder.query<Artist, number>({
       query: (artistId) => `artist/${artistId}`,
     }),
+
+    searchTracks: builder.query<DeezerAlbumsTracksResponse, string>({
+      query: (searchTerm) => `search?q=${searchTerm}`,
+    }),
   }),
 });
 
@@ -79,4 +83,5 @@ export const {
   useGetChartArtistsQuery,
   useGetArtistTracksQuery,
   useGetArtistDetailsQuery,
+  useSearchTracksQuery,
 } = musicApi;

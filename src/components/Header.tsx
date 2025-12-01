@@ -9,6 +9,7 @@ import { useAppDispatch } from "../app/hooks";
 import { signIn, logOut } from "../app/features/user/userSlice";
 import { loadUserHistory } from "../app/features/player/playerSlice";
 import { clearPlayerState } from "../app/features/player/playerSlice";
+import { useNavigate } from "react-router-dom";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,15 @@ export function Header() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user.user);
   const [showCVV, setShowCVV] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchTerm.trim().length > 0) {
+      navigate(`/search/${searchTerm}`);
+    }
+  };
 
   const isPro = useAppSelector((state) => state.user.isPro);
   const isSignIn = useAppSelector((state) => state.user.isSignIn);
@@ -114,6 +124,9 @@ export function Header() {
           </div>
 
           <input
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleSearch}
             type="text"
             placeholder="Search"
             className="ml-3 rounded-4xl bg-[#2A2A2A] p-3 pl-6 w-full lg:w-175 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"

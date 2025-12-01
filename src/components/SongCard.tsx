@@ -39,7 +39,7 @@ export function SongCard({
       className={`
         h-15 flex group relative 
         bg-[#232323] overflow-hidden 
-        hover:brightness-70 
+        hover:brightness-70
         ${className || ""} 
       `}
     >
