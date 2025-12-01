@@ -12,13 +12,14 @@ interface UserState {
   user: User | null;
 }
 
-const savedIsPro = localStorage.getItem("isPro");
 const savedUserJSON = localStorage.getItem("currentUser");
-
 const savedUser: User | null = savedUserJSON ? JSON.parse(savedUserJSON) : null;
 
+const proKey = savedUser ? `isPro_${savedUser.email}` : null;
+const savedIsPro = proKey ? localStorage.getItem(proKey) === "true" : false;
+
 const initialState: UserState = {
-  isPro: savedIsPro === "true",
+  isPro: savedIsPro,
   isSignIn: !!savedUser,
   user: savedUser,
 };
@@ -29,24 +30,37 @@ export const userSlice = createSlice({
   reducers: {
     upgradeToPro: (state) => {
       state.isPro = true;
-      localStorage.setItem("isPro", "true");
+      if (state.user) {
+        const key = `isPro_${state.user.email}`;
+        localStorage.setItem(key, "true");
+      }
     },
+
     downgradeToFree: (state) => {
       state.isPro = false;
-      localStorage.removeItem("isPro");
+      if (state.user) {
+        const key = `isPro_${state.user.email}`;
+        localStorage.removeItem(key);
+      }
     },
 
     signIn: (state, action: PayloadAction<User>) => {
       state.isSignIn = true;
       state.user = action.payload;
-      state.isPro = localStorage.getItem("isPro") === "true";
+
       localStorage.setItem("currentUser", JSON.stringify(action.payload));
+
+      const key = `isPro_${action.payload.email}`;
+      const hasPro = localStorage.getItem(key) === "true";
+
+      state.isPro = hasPro;
     },
 
     logOut: (state) => {
       state.isSignIn = false;
       state.user = null;
       state.isPro = false;
+
       localStorage.removeItem("currentUser");
     },
   },
