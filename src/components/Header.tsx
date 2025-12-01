@@ -1,6 +1,4 @@
 import iconpark from "../assets/images/icon-park-outline_down.png";
-import left from "../assets/images/fe_arrow-left.png";
-import right from "../assets/images/fe_arrow-right.png";
 import React, { useState } from "react";
 import { UpgradeButton } from "./UpgradeButton";
 import { useAppSelector } from "../app/hooks";
@@ -112,16 +110,9 @@ export function Header() {
 
   return (
     <header className="h-20 top-0 w-full fixed z-10 bg-[#18181A] text-white">
-      <div className="ml-1 lg:ml-50 mx-auto h-full flex items-center justify-between px-4">
+      <div className="ml-1 lg:ml-50 mx-auto h-full flex items-center justify-between px-4 gap-2">
         <div className="flex items-center flex-1 min-w-0">
-          <div className="hidden lg:flex items-center">
-            <div className="rounded-full h-12 w-12 bg-[#2A2A2A] border-2 flex justify-center items-center hover:brightness-70">
-              <img src={left} className="w-5 h-5" alt="left button" />
-            </div>
-            <div className="rounded-full h-12 w-12 bg-[#2A2A2A] border-2 ml-3 flex justify-center items-center hover:brightness-70">
-              <img className="w-5 h-5" src={right} alt="right button" />
-            </div>
-          </div>
+          <div className="hidden lg:flex items-center"></div>
 
           <input
             value={searchTerm}
@@ -129,28 +120,30 @@ export function Header() {
             onKeyDown={handleSearch}
             type="text"
             placeholder="Search"
-            className="ml-3 rounded-4xl bg-[#2A2A2A] p-3 pl-6 w-full lg:w-175 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+            className="rounded-4xl bg-[#2A2A2A] min-w-22 sm:min-w-30 p-3 pl-6 flex-1 mr-3 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
           />
         </div>
 
         <UpgradeButton
           className={`${
             isPro
-              ? "cursor-pointer hidden lg:block border-gold-500 text-green-500 mr-5 ml-5"
-              : "hidden cursor-pointer lg:flex items-center justify-center rounded-3xl h-12 w-42 bg-[#2A2A2A] border-2 border-green-500 hover:brightness-70 text-white font-bold"
+              ? "cursor-pointer hidden lg:block border-gold-500 text-green-500 mr-5 ml-5 shrink-0"
+              : "hidden cursor-pointer lg:flex items-center justify-center rounded-3xl h-12 w-42 bg-[#2A2A2A] border-2 border-green-500 hover:brightness-70 text-white font-bold shrink-0"
           }`}
         >
           {isPro ? "PRO ACCOUNT" : "UPGRADE"}
         </UpgradeButton>
 
-        <div className="relative ml-3">
+        <div className="relative shrink-0 ml-3">
           <div
             onClick={handleProfile}
-            className="rounded-3xl cursor-pointer h-12 bg-[#2A2A2A] flex items-center justify-center p-1.5 lg:w-56"
+            className="rounded-3xl w-35 lg:w-56 cursor-pointer h-12 bg-[#2A2A2A] flex items-center justify-center p-1.5"
           >
             {isSignIn ? (
               <div className="flex items-center">
-                <p className="hidden lg:block ml-2 mr-1.5">{user?.name}</p>
+                <p className="lg:block ml-2 w-30 lg:w-43 mr-1.5 truncate">
+                  {user?.name}
+                </p>
                 <img
                   className={`w-3 h-3
               transition-transform duration-300 ease-in-out
@@ -199,7 +192,7 @@ export function Header() {
                 onClick={handleModal}
                 className="w-full flex justify-center"
               >
-                <p className="hidden lg:block mr-1.5">Sign in</p>
+                <p className=" lg:block p-1 mr-1.5">Sign in</p>
 
                 {isModalOpen && (
                   <Modal onClose={() => setIsModalOpen(false)}>
