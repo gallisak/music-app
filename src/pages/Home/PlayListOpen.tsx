@@ -44,13 +44,16 @@ export function PlayListOpen() {
             alt="album photo"
           />
           <div>
-            <h1 className="text-white text-[20px] ml-5 mt-5 mb-2">
+            <h1 className="text-white font-black text-4xl ml-5 mt-5 mb-2">
               {albumDetails?.title}
             </h1>
             {tracksData &&
               tracksData.data.slice(0, 1).map((artist) => {
                 return (
-                  <h1 key={artist.id} className="text-white ml-5 mt-5 mb-2">
+                  <h1
+                    key={artist.id}
+                    className="text-white text-2xl ml-5 mt-5 mb-2"
+                  >
                     {artist.artist.name}
                   </h1>
                 );

@@ -203,12 +203,6 @@ export function SideBar() {
           </div>
         </div>
       )}
-
-      <div className="h-8 mt-6 bg-green-400 flex  justify-center items-center">
-        <p className="font-bold text-[12px]">
-          Now Playing on Samsung S22 Ultra
-        </p>
-      </div>
     </aside>
   );
 }
