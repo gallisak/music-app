@@ -5,6 +5,7 @@ import addMusic from "../assets/images/icon-park-outline_add-music.png";
 import PhotoMusic from "../assets/images/Cover Album.png";
 import airPlay from "../assets/images/AirPlay.png";
 import like from "../assets/images/Active.png";
+import emptyLike from "../assets/images/empty-like.png";
 import { Link } from "react-router-dom";
 import playblack from "../assets/images/playblack.png";
 import stopblack from "../assets/images/free-icon-pause-button-3249396.png";
@@ -14,12 +15,24 @@ import { useRef, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { play, pause } from "../app/features/player/playerSlice";
 import { Modal } from "./Modal";
+import { toggleLike } from "../app/features/library/likedSongsSlice";
 
 export function SideBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { currentTrack, isPlaying } = useAppSelector((state) => state.player);
   const dispatch = useAppDispatch();
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { likedTracks } = useAppSelector((state) => state.likedSongs);
+
+  const isLiked = currentTrack
+    ? likedTracks.some((track) => track.id === currentTrack.id)
+    : false;
+
+  const handleLikeClick = () => {
+    if (currentTrack) {
+      dispatch(toggleLike(currentTrack));
+    }
+  };
 
   useEffect(() => {
     if (audioRef.current && currentTrack) {
@@ -157,7 +170,13 @@ export function SideBar() {
             <div className="flex justify-between items-center gap-4">
               <p className="text-[10px]">{currentTrack?.artistName}</p>
               <img className="w-5 h-5" src={airPlay} alt="airPlay icon" />
-              <img className="w-5 h-5" src={like} alt="like icon" />
+              <button className="cursor-pointer" onClick={handleLikeClick}>
+                <img
+                  className="w-5 h-5"
+                  src={isLiked ? like : emptyLike}
+                  alt="like icon"
+                />
+              </button>
             </div>
           </div>
         </div>

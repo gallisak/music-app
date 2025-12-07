@@ -3,11 +3,13 @@ import { musicApi } from "./services/musicApi";
 
 import PlayerReducer from "./features/player/playerSlice";
 import userReducer from "./features/user/userSlice";
+import likedSongsReducer from "./features/library/likedSongsSlice";
 
 export const store = configureStore({
   reducer: {
     player: PlayerReducer,
     user: userReducer,
+    likedSongs: likedSongsReducer,
 
     [musicApi.reducerPath]: musicApi.reducer,
   },

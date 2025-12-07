@@ -5,7 +5,7 @@ export function HistoryBar() {
   const { history } = useAppSelector((state) => state.player);
 
   return (
-    <aside className="bg-[#2A2A2A]/30 backdrop-blur-2xl fixed hidden top-0 z-1 overflow-y-auto scrollbar-none lg:block h-full w-50 right-0">
+    <aside className="bg-[#2A2A2A]/30 backdrop-blur-lg fixed hidden top-0 z-1 overflow-y-auto scrollbar-none lg:block h-full w-50 right-0">
       <span className="w-full flex justify-center">
         <h2 className="text-white font-bold mb-4 mt-22 text-lg">
           Recently Played

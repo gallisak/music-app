@@ -8,6 +8,7 @@ import { signIn, logOut } from "../app/features/user/userSlice";
 import { loadUserHistory } from "../app/features/player/playerSlice";
 import { clearPlayerState } from "../app/features/player/playerSlice";
 import { useNavigate } from "react-router-dom";
+import { loadUserLikes } from "../app/features/library/likedSongsSlice";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,29 +69,43 @@ export function Header() {
       return;
     }
 
-    const storedData = localStorage.getItem("userData");
+    const usersJSON = localStorage.getItem("users");
+    const users = usersJSON ? JSON.parse(usersJSON) : [];
 
-    if (!storedData) {
-      alert("User not found! Register first");
-      return;
-    }
-    const user = JSON.parse(storedData);
+    const foundUser = users.find(
+      (u: any) => u.email === email && u.password === password
+    );
 
-    if (email === user.email && password === user.password) {
-      alert(`Successful login! Hello, ${user.name}`);
-      dispatch(signIn(user));
+    if (foundUser) {
+      alert(`Successful login! Hello, ${foundUser.name}`);
+
+      dispatch(signIn(foundUser));
+
+      dispatch(loadUserHistory(foundUser.email));
+      dispatch(loadUserLikes(foundUser.email));
+
+      setIsModalOpen(false);
+      setEmail("");
+      setPassword("");
     } else {
-      alert("Invalid email or password!");
+      alert("Invalid email or password! Or register first.");
     }
-    setEmail("");
-    setPassword("");
-
-    dispatch(loadUserHistory(user.email));
   };
 
   const handleRegister = () => {
-    if (emailRegister === "" || passwordRegister === "" || name === "") {
+    if (!emailRegister || !passwordRegister || !name) {
       alert("Fill in all fields");
+      return;
+    }
+
+    const existingUsersJSON = localStorage.getItem("users");
+    const users = existingUsersJSON ? JSON.parse(existingUsersJSON) : [];
+
+    const userExists = users.some((u: any) => u.email === emailRegister);
+
+    if (userExists) {
+      alert("User with this email already exists!");
+      return;
     }
 
     const newUser = {
@@ -99,9 +114,15 @@ export function Header() {
       name: name,
     };
 
-    localStorage.setItem("userData", JSON.stringify(newUser));
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
 
     alert("Registration successful!");
+
+    dispatch(signIn(newUser));
+
+    dispatch(loadUserLikes(newUser.email));
+
     setEmailRegister("");
     setPasswordRegister("");
     setName("");
@@ -109,7 +130,7 @@ export function Header() {
   };
 
   return (
-    <header className="h-20 top-0 w-full fixed z-10 bg-[#18181A] text-white">
+    <header className="h-20 top-0 w-full fixed z-10 backdrop-blur-lg backdrop-brightness-80 text-white">
       <div className="ml-1 lg:ml-50 mx-auto h-full flex items-center justify-between px-4 gap-2">
         <div className="flex items-center flex-1 min-w-0">
           <div className="hidden lg:flex items-center"></div>
