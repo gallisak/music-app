@@ -1,5 +1,4 @@
 import PhotoMusic from "../../../assets/images/Cover Album.png";
-import airPlay from "../../../assets/images/AirPlay.png";
 import like from "../../../assets/images/Active.png";
 import emptyLike from "../../../assets/images/empty-like.png";
 import playblack from "../../../assets/images/playblack.png";
@@ -144,7 +143,6 @@ export function MiniPlayer() {
 
             <div className="flex justify-between items-center gap-4">
               <p className="text-[10px] truncate">{currentTrack?.artistName}</p>
-              <img className="w-5 h-5" src={airPlay} alt="airPlay icon" />
               <button
                 className="cursor-pointer hover:scale-110 transition-transform"
                 onClick={handleLikeClick}

@@ -40,13 +40,6 @@ export function SideBar() {
 
       <div className="w-41 mt-3 ml-4 border-[#464646] border-b-2 h-2"></div>
 
-      <div className="ml-5 mt-5 text-[#ACACAC]">
-        <p className="mb-3 hover:text-[#ffffff]">Your Top Song 2025</p>
-        <p className="mb-3 hover:text-[#ffffff]">Cover Hits 2025</p>
-        <p className="mb-3 hover:text-[#ffffff]">Anime Hits</p>
-        <p className="mb-3 hover:text-[#ffffff]">Best Gaming Music </p>
-      </div>
-
       <MiniPlayer />
     </aside>
   );
