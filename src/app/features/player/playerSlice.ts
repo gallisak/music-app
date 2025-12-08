@@ -11,7 +11,6 @@ export interface ActiveTrack {
 interface PlayerState {
   currentTrack: ActiveTrack | null;
   isPlaying: boolean;
-  volume: number;
   history: ActiveTrack[];
 }
 
@@ -24,7 +23,6 @@ const savedHistory = historyKey ? localStorage.getItem(historyKey) : null;
 const initialState: PlayerState = {
   currentTrack: null,
   isPlaying: false,
-  volume: 0.8,
   history: savedHistory ? JSON.parse(savedHistory) : [],
 };
 

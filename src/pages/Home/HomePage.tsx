@@ -1,8 +1,8 @@
 import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
 import { HistoryBar } from "../../components/Bar/HistoryBar";
 import { Header } from "../../components/Header/Header";
-import { PlayListCardGrid } from "./PlayListCardFlex";
-import { ArtistCardFlex } from "./ArtistCardFlex";
+import { PlayListCardGrid } from "./PlayList/PlayListCardFlex";
+import { ArtistCardFlex } from "./Artist/ArtistCardFlex";
 
 export function HomePage() {
   return (

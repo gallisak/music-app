@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGetChartAlbumsQuery } from "../../app/services/musicApi";
+import { useGetChartAlbumsQuery } from "../../../app/services/musicApi";
 
 export function PlayListCard() {
   const { data, error, isLoading } = useGetChartAlbumsQuery();

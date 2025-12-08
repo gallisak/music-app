@@ -1,12 +1,12 @@
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
-import { HistoryBar } from "../../components/Bar/HistoryBar";
-import { Header } from "../../components/Header/Header";
-import { SongCard } from "../../components/SongCard";
+import { ControlMobileBar } from "../../../components/Bar/ControlMobileBar";
+import { HistoryBar } from "../../../components/Bar/HistoryBar";
+import { Header } from "../../../components/Header/Header";
+import { SongCard } from "../../../components/SongCard";
 import { useParams } from "react-router-dom";
 import {
   useGetArtistDetailsQuery,
   useGetArtistTracksQuery,
-} from "../../app/services/musicApi";
+} from "../../../app/services/musicApi";
 
 export function ArtistCardOpen() {
   const { artistId } = useParams();

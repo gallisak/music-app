@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGetChartArtistsQuery } from "../../app/services/musicApi";
+import { useGetChartArtistsQuery } from "../../../app/services/musicApi";
 
 export function ArtistCard() {
   const { data, error, isLoading } = useGetChartArtistsQuery();
