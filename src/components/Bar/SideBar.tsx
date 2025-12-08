@@ -16,6 +16,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { play, pause } from "../../app/features/player/playerSlice";
 import { Modal } from "../Modal";
 import { toggleLike } from "../../app/features/library/likedSongsSlice";
+import { formatTime } from "../../utils/formatTime";
 
 export function SideBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,6 +24,10 @@ export function SideBar() {
   const dispatch = useAppDispatch();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { likedTracks } = useAppSelector((state) => state.likedSongs);
+  const isPro = useAppSelector((state) => state.user.isPro);
+
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const isLiked = currentTrack
     ? likedTracks.some((track) => track.id === currentTrack.id)
@@ -34,10 +39,34 @@ export function SideBar() {
     }
   };
 
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!isPro) {
+      alert("Scrubbing is available only for PRO users!");
+      return;
+    }
+
+    const newTime = Number(e.target.value);
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
   useEffect(() => {
     if (audioRef.current && currentTrack) {
       audioRef.current.src = currentTrack.preview;
-
       const playPromise = audioRef.current.play();
 
       if (playPromise !== undefined) {
@@ -55,15 +84,7 @@ export function SideBar() {
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        const playPromise = audioRef.current.play();
-
-        if (playPromise !== undefined) {
-          playPromise.catch((error) => {
-            if (error.name !== "AbortError") {
-              console.warn("Play blocked:", error);
-            }
-          });
-        }
+        audioRef.current.play().catch(() => {});
       } else {
         audioRef.current.pause();
       }
@@ -71,14 +92,22 @@ export function SideBar() {
   }, [isPlaying]);
 
   return (
-    <aside className="bg-[#333333] fixed z-11 hidden lg:flex  w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
-      <audio className="hidden" ref={audioRef}></audio>
+    <aside className="bg-[#333333] fixed z-11 hidden lg:flex w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
+      <audio
+        className="hidden"
+        ref={audioRef}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={() => dispatch(pause())}
+      ></audio>
+
       <div className="flex items-center justify-center flex-col">
         <Link to="/" className="text-3xl font-bold text-[#1ED760] mt-3">
           Music-app
         </Link>
         <p className="text-[#006724]">by gallisak</p>
       </div>
+
       <div className="ml-5 mt-5 text-[#ACACAC]">
         <div className="mb-3 flex gap-2 w-6 h-6 ">
           <img src={homeIcon} alt="Home icon" />
@@ -128,22 +157,18 @@ export function SideBar() {
 
       <div className="ml-5 mt-5 text-[#ACACAC]">
         <p className="mb-3 hover:text-[#ffffff]">Your Top Song 2025</p>
-
         <p className="mb-3 hover:text-[#ffffff]">Cover Hits 2025</p>
-
         <p className="mb-3 hover:text-[#ffffff]">Anime Hits</p>
-
         <p className="mb-3 hover:text-[#ffffff]">Best Gaming Music </p>
       </div>
 
       {currentTrack ? (
-        <div className="flex flex-col justify-between items-center text-white">
+        <div className="flex flex-col justify-between items-center text-white pb-5">
           <img
             className="w-40 rounded-2xl relative h-40"
             src={currentTrack?.coverUrl}
-            alt="photo of the song that is playing now"
+            alt="cover"
           />
-
           <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
             <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
               <img className="h-2 w-2" src={back} alt="back icon" />
@@ -164,13 +189,38 @@ export function SideBar() {
               <img className="h-2 w-2" src={next} alt="back next" />
             </button>
           </div>
-
           <div className="w-39 mt-3">
-            <h1 className="font-bold text-[20px]">{currentTrack?.title}</h1>
+            <h1 className="font-bold text-[20px] truncate">
+              {currentTrack?.title}
+            </h1>
+
+            <div className="w-full flex items-center gap-2 text-[10px] text-gray-400 font-mono mt-1 mb-1">
+              <span>{formatTime(currentTime)}</span>
+              <input
+                type="range"
+                min="0"
+                max={duration || 0}
+                value={currentTime}
+                onChange={handleSeek}
+                className={`
+                        w-full h-1 rounded-lg appearance-none
+                        ${
+                          isPro
+                            ? "cursor-pointer bg-green-600"
+                            : "cursor-not-allowed bg-gray-600"
+                        }
+                    `}
+              />
+              <span>{formatTime(duration)}</span>
+            </div>
+
             <div className="flex justify-between items-center gap-4">
-              <p className="text-[10px]">{currentTrack?.artistName}</p>
+              <p className="text-[10px] truncate">{currentTrack?.artistName}</p>
               <img className="w-5 h-5" src={airPlay} alt="airPlay icon" />
-              <button className="cursor-pointer" onClick={handleLikeClick}>
+              <button
+                className="cursor-pointer hover:scale-110 transition-transform"
+                onClick={handleLikeClick}
+              >
                 <img
                   className="w-5 h-5"
                   src={isLiked ? like : emptyLike}
@@ -185,20 +235,17 @@ export function SideBar() {
           <img
             className="w-40 rounded-2xl relative h-40"
             src={PhotoMusic}
-            alt="photo of the song that is playing now"
+            alt="cover placeholder"
           />
-
           <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
             <button className="bg-white h-6 w-6 rounded-full border-2 border-black flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={back} alt="back icon" />
+              <img className="h-2 w-2" src={back} alt="back" />
             </button>
-
             <button className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-3 w-3" src={playblack} alt="play icon" />
+              <img className="h-3 w-3" src={playblack} alt="play" />
             </button>
-
             <button className="bg-white h-6 w-6 rounded-full flex border-2 border-black justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={next} alt="back next" />
+              <img className="h-2 w-2" src={next} alt="next" />
             </button>
           </div>
         </div>
