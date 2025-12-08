@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { SideBar } from "./SideBar";
-import { Header } from "./Header";
-import { HistoryBar } from "./HistoryBar";
+import { SideBar } from "./Bar/SideBar";
+import { Header } from "./Header/Header";
+import { HistoryBar } from "./Bar/HistoryBar";
 
 export function Layout() {
   return (

@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../app/hooks";
 import { SongCard } from "../../components/SongCard";
 import like from "../../assets/images/Active.png";
-import { ControlMobileBar } from "../../components/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
 
 export function LikedSongsPage() {
   const { likedTracks } = useAppSelector((state) => state.likedSongs);

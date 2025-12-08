@@ -1,21 +1,21 @@
-import headphones from "../assets/images/feather_headphones.png";
-import libraryIcon from "../assets/images/icon-park-outline_folder-music-one.png";
-import homeIcon from "../assets/images/free-icon-home-10995497.png";
-import addMusic from "../assets/images/icon-park-outline_add-music.png";
-import PhotoMusic from "../assets/images/Cover Album.png";
-import airPlay from "../assets/images/AirPlay.png";
-import like from "../assets/images/Active.png";
-import emptyLike from "../assets/images/empty-like.png";
+import headphones from "../../assets/images/feather_headphones.png";
+import libraryIcon from "../../assets/images/icon-park-outline_folder-music-one.png";
+import homeIcon from "../../assets/images/free-icon-home-10995497.png";
+import addMusic from "../../assets/images/icon-park-outline_add-music.png";
+import PhotoMusic from "../../assets/images/Cover Album.png";
+import airPlay from "../../assets/images/AirPlay.png";
+import like from "../../assets/images/Active.png";
+import emptyLike from "../../assets/images/empty-like.png";
 import { Link } from "react-router-dom";
-import playblack from "../assets/images/playblack.png";
-import stopblack from "../assets/images/free-icon-pause-button-3249396.png";
-import next from "../assets/images/free-icon-next-724956.png";
-import back from "../assets/images/free-icon-back-724956.png";
+import playblack from "../../assets/images/playblack.png";
+import stopblack from "../../assets/images/free-icon-pause-button-3249396.png";
+import next from "../../assets/images/free-icon-next-724956.png";
+import back from "../../assets/images/free-icon-back-724956.png";
 import { useRef, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { play, pause } from "../app/features/player/playerSlice";
-import { Modal } from "./Modal";
-import { toggleLike } from "../app/features/library/likedSongsSlice";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { play, pause } from "../../app/features/player/playerSlice";
+import { Modal } from "../Modal";
+import { toggleLike } from "../../app/features/library/likedSongsSlice";
 
 export function SideBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);

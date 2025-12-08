@@ -1,5 +1,5 @@
-import { useAppSelector } from "../app/hooks";
-import { SongCard } from "./SongCard";
+import { useAppSelector } from "../../app/hooks";
+import { SongCard } from "../SongCard";
 
 export function HistoryBar() {
   const { history } = useAppSelector((state) => state.player);

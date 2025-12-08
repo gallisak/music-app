@@ -1,9 +1,9 @@
-import homeIcon from "../assets/images/free-icon-home-10995497.png";
-import addMusic from "../assets/images/icon-park-outline_add-music.png";
-import libraryIcon from "../assets/images/icon-park-outline_folder-music-one.png";
-import headphones from "../assets/images/feather_headphones.png";
+import homeIcon from "../../assets/images/free-icon-home-10995497.png";
+import addMusic from "../../assets/images/icon-park-outline_add-music.png";
+import libraryIcon from "../../assets/images/icon-park-outline_folder-music-one.png";
+import headphones from "../../assets/images/feather_headphones.png";
 import { Link } from "react-router-dom";
-import { Modal } from "./Modal";
+import { Modal } from "../Modal";
 import { useState } from "react";
 
 export function ControlMobileBar() {

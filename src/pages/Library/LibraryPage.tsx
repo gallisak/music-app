@@ -1,7 +1,7 @@
-import { HistoryBar } from "../../components/HistoryBar";
-import { Header } from "../../components/Header";
+import { HistoryBar } from "../../components/Bar/HistoryBar";
+import { Header } from "../../components/Header/Header";
 import { PersonalPlayListCardFlex } from "./PersonalPlaylistCardFlex";
-import { ControlMobileBar } from "../../components/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
 
 export function LibraryPage() {
   return (

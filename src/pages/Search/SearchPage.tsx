@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSearchTracksQuery } from "../../app/services/musicApi";
 import { SongCard } from "../../components/SongCard";
-import { ControlMobileBar } from "../../components/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
 
 export function SearchPage() {
   const { query } = useParams();

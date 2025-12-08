@@ -1,6 +1,6 @@
-import { ControlMobileBar } from "../../components/ControlMobileBar";
-import { HistoryBar } from "../../components/HistoryBar";
-import { Header } from "../../components/Header";
+import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { HistoryBar } from "../../components/Bar/HistoryBar";
+import { Header } from "../../components/Header/Header";
 import { SongCard } from "../../components/SongCard";
 import { useParams } from "react-router-dom";
 import {
