@@ -1,4 +1,4 @@
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
 import { HistoryBar } from "../../components/Bar/HistoryBar";
 import { Header } from "../../components/Header/Header";
 

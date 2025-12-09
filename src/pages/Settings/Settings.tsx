@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { toggleTheme } from "../../app/features/user/userSlice";
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
+import { MobileMiniPlayer } from "../../components/Bar/MobileBar/MobileMiniPlayer";
 
 export function Settings() {
   const dispatch = useAppDispatch();
@@ -35,6 +36,7 @@ export function Settings() {
           Current theme: <span className="font-bold capitalize">{theme}</span>
         </p>
       </div>
+      <MobileMiniPlayer />
       <ControlMobileBar />
     </div>
   );

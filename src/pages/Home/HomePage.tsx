@@ -1,8 +1,9 @@
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
 import { HistoryBar } from "../../components/Bar/HistoryBar";
 import { Header } from "../../components/Header/Header";
 import { PlayListCardGrid } from "./PlayList/PlayListCardFlex";
 import { ArtistCardFlex } from "./Artist/ArtistCardFlex";
+import { MobileMiniPlayer } from "../../components/Bar/MobileBar/MobileMiniPlayer";
 
 export function HomePage() {
   return (
@@ -26,6 +27,7 @@ export function HomePage() {
       </div>
 
       <div className="mt-20">
+        <MobileMiniPlayer />
         <ControlMobileBar />
       </div>
     </>

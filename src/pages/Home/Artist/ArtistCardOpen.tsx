@@ -1,4 +1,4 @@
-import { ControlMobileBar } from "../../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../../components/Bar/MobileBar/ControlMobileBar";
 import { HistoryBar } from "../../../components/Bar/HistoryBar";
 import { Header } from "../../../components/Header/Header";
 import { SongCard } from "../../../components/SongCard";
@@ -7,6 +7,7 @@ import {
   useGetArtistDetailsQuery,
   useGetArtistTracksQuery,
 } from "../../../app/services/musicApi";
+import { MobileMiniPlayer } from "../../../components/Bar/MobileBar/MobileMiniPlayer";
 
 export function ArtistCardOpen() {
   const { artistId } = useParams();
@@ -84,6 +85,7 @@ export function ArtistCardOpen() {
       })}
 
       <div>
+        <MobileMiniPlayer />
         <ControlMobileBar />
       </div>
     </>

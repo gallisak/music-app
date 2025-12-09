@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useSearchTracksQuery } from "../../app/services/musicApi";
 import { SongCard } from "../../components/SongCard";
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
+import { MobileMiniPlayer } from "../../components/Bar/MobileBar/MobileMiniPlayer";
 
 export function SearchPage() {
   const { query } = useParams();
@@ -16,11 +17,12 @@ export function SearchPage() {
         <div className="w-20 h-20 rounded-full border-t-4 border-t-black border-l-4 border-l-gray-500 border-r-4 border-r-gray-500 border-b-4 border-b-gray-500 animate-spin"></div>
       </div>
     );
-  if (error) return <div className="text-white p-10">Error occured</div>;
+  if (error)
+    return <div className="dark:text-white text-black p-10">Error occured</div>;
 
   return (
     <div className=" ml-0 lg:ml-49 mt-20">
-      <h2 className="text-white text-2xl ml-5 mt-25 font-bold mb-6">
+      <h2 className="dark:text-white text-black text-2xl ml-5 mt-25 font-bold mb-6">
         Search results for: <span className="text-green-500">{query}</span>
       </h2>
 
@@ -36,6 +38,7 @@ export function SearchPage() {
           />
         ))}
       </div>
+      <MobileMiniPlayer />
       <ControlMobileBar />
     </div>
   );

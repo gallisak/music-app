@@ -3,8 +3,6 @@ import like from "../../../assets/images/Active.png";
 import emptyLike from "../../../assets/images/empty-like.png";
 import playblack from "../../../assets/images/playblack.png";
 import stopblack from "../../../assets/images/free-icon-pause-button-3249396.png";
-import next from "../../../assets/images/free-icon-next-724956.png";
-import back from "../../../assets/images/free-icon-back-724956.png";
 import { play, pause } from "../../../app/features/player/playerSlice";
 import { formatTime } from "../../../utils/formatTime";
 import { useRef, useState, useEffect } from "react";
@@ -97,23 +95,15 @@ export function MiniPlayer() {
             alt="cover"
           />
           <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
-            <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={back} alt="back icon" />
-            </button>
-
             <button
               onClick={() => dispatch(isPlaying ? pause() : play())}
-              className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70"
+              className="bg-white h-9 w-9 border-4 ml-8 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70"
             >
               {isPlaying ? (
                 <img className="h-3 w-3" src={stopblack} alt="pause icon" />
               ) : (
                 <img className="h-3 w-3" src={playblack} alt="play icon" />
               )}
-            </button>
-
-            <button className="bg-white h-6 w-6 border-2 border-black rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={next} alt="next icon" />
             </button>
           </div>
           <div className="w-39 mt-3">
@@ -170,14 +160,8 @@ export function MiniPlayer() {
             alt="cover placeholder"
           />
           <div className="absolute flex items-center gap-2 left-0 ml-12.5 mt-28 text-black font-bold">
-            <button className="bg-white h-6 w-6 rounded-full border-2 border-black flex justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={back} alt="back" />
-            </button>
-            <button className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
+            <button className="bg-white ml-8 h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-70">
               <img className="h-3 w-3" src={playblack} alt="play" />
-            </button>
-            <button className="bg-white h-6 w-6 rounded-full flex border-2 border-black justify-center items-center cursor-pointer hover:brightness-70">
-              <img className="h-2 w-2" src={next} alt="next" />
             </button>
           </div>
         </div>

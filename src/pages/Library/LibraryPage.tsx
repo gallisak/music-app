@@ -1,7 +1,8 @@
 import { HistoryBar } from "../../components/Bar/HistoryBar";
 import { Header } from "../../components/Header/Header";
 import { PersonalPlayListCardFlex } from "./PersonalPlaylistCardFlex";
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
+import { MobileMiniPlayer } from "../../components/Bar/MobileBar/MobileMiniPlayer";
 
 export function LibraryPage() {
   return (
@@ -12,6 +13,7 @@ export function LibraryPage() {
         <PersonalPlayListCardFlex />
       </div>
       <div>
+        <MobileMiniPlayer />
         <ControlMobileBar />
       </div>
     </>

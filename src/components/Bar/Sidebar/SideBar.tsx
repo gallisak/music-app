@@ -19,19 +19,19 @@ export function SideBar() {
       </div>
 
       <div className="ml-5 mt-5 text-[#ACACAC]">
-        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 w-6 h-6 ">
+        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 ">
           <img src={homeIcon} alt="Home icon" />
           <Link className="dark:hover:text-[#ffffff]" to="/">
             Home
           </Link>
         </div>
-        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 w-6 h-6 ">
+        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 ">
           <img src={libraryIcon} alt="Library Icon" />
           <Link className="dark:hover:text-[#ffffff]" to="/Library">
             Your Library
           </Link>
         </div>
-        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 w-6 h-6 ">
+        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 ">
           <img src={headphones} alt="Liked songs Icon" />
           <Link className="dark:hover:text-[#ffffff]" to="/LikedSongs">
             Liked Songs

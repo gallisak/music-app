@@ -1,7 +1,8 @@
 import { useAppSelector } from "../../app/hooks";
 import { SongCard } from "../../components/SongCard";
 import like from "../../assets/images/Active.png";
-import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
+import { MobileMiniPlayer } from "../../components/Bar/MobileBar/MobileMiniPlayer";
 
 export function LikedSongsPage() {
   const { likedTracks } = useAppSelector((state) => state.likedSongs);
@@ -9,7 +10,7 @@ export function LikedSongsPage() {
   return (
     <div className="flex dark:bg-[#18181A] bg-[#a8a8a8] min-h-screen text-white">
       <main className="flex-1 pt-24 pl-3 lg:pl-50 pr-4 lg:pr-80">
-        <div className="flex items-end gap-5 mb-8">
+        <div className="flex items-end gap-5 mb-8 w-fit">
           <div className="w-40 h-40 bg-linear-to-br ml-4 from-indigo-500 to-purple-500 rounded shadow-lg flex items-center justify-center">
             <span>
               <img
@@ -20,10 +21,10 @@ export function LikedSongsPage() {
             </span>
           </div>
           <div>
-            <p className="text-sm font-bold dark:text-white text-black uppercase">
+            <p className="text-sm font-bold dark:text-white w-fit text-black uppercase">
               Playlist
             </p>
-            <h1 className="text-5xl dark:text-white text-black font-black mb-2">
+            <h1 className="lg:text-5xl text-3xl dark:text-white w-fit text-black font-black mb-2">
               Liked Songs
             </h1>
             <p className=" dark:text-white text-black">
@@ -51,6 +52,7 @@ export function LikedSongsPage() {
           )}
         </div>
       </main>
+      <MobileMiniPlayer />
       <ControlMobileBar />
     </div>
   );

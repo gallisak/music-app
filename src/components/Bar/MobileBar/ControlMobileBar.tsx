@@ -1,23 +1,23 @@
-import homeIcon from "../../assets/images/free-icon-home-10995497.png";
-import addMusic from "../../assets/images/icon-park-outline_add-music.png";
-import libraryIcon from "../../assets/images/icon-park-outline_folder-music-one.png";
-import headphones from "../../assets/images/feather_headphones.png";
+import homeIcon from "../../../assets/images/free-icon-home-10995497.png";
+import addMusic from "../../../assets/images/icon-park-outline_add-music.png";
+import libraryIcon from "../../../assets/images/icon-park-outline_folder-music-one.png";
+import headphones from "../../../assets/images/feather_headphones.png";
 import { Link } from "react-router-dom";
-import { Modal } from "../Modal";
+import { Modal } from "../../Modal";
 import { useState } from "react";
 
 export function ControlMobileBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-[#18181A] flex justify-between w-full h-15 z-0 lg:hidden fixed bottom-0">
+    <div className="dark:bg-[#18181A] bg-[#d3d3d3] flex justify-between w-full h-15 z-0 lg:hidden fixed bottom-0">
       <div className=" flex justify-center items-center  ml-5">
         <Link
           className="flex flex-col text-[10px] justify-center items-center"
           to="/"
         >
           <img src={homeIcon} className="w-6" alt="Home Icon" />
-          <p className="text-white">Home</p>
+          <p className="dark:text-white text-black">Home</p>
         </Link>
       </div>
       <div className=" flex justify-center items-center ">
@@ -26,7 +26,7 @@ export function ControlMobileBar() {
           to="/Library"
         >
           <img src={libraryIcon} className="w-6" alt="Library Icon" />
-          <p className="text-white">Your Library</p>
+          <p className="dark:text-white text-black">Your Library</p>
         </Link>
       </div>
       <Link
@@ -34,7 +34,7 @@ export function ControlMobileBar() {
         to="/LikedSongs"
       >
         <img src={headphones} className="w-6" alt="Liked songs Icon" />
-        <p className="text-white">Liked Songs</p>
+        <p className="dark:text-white text-black">Liked Songs</p>
       </Link>
       <button onClick={() => setIsModalOpen(true)}>
         <Link
@@ -42,7 +42,7 @@ export function ControlMobileBar() {
           to=""
         >
           <img src={addMusic} className="w-6" alt="Create Playlist Icon" />
-          <p className="text-white">Create Playlist</p>
+          <p className="dark:text-white text-black">Create Playlist</p>
         </Link>
         {isModalOpen && (
           <Modal onClose={() => setIsModalOpen(false)}>
