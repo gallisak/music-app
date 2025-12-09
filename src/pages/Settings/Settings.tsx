@@ -1,15 +1,16 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { toggleTheme } from "../../app/features/user/userSlice";
+import { ControlMobileBar } from "../../components/Bar/ControlMobileBar";
 
 export function Settings() {
   const dispatch = useAppDispatch();
   const theme = useAppSelector((state) => state.user.theme);
 
   return (
-    <div className="pt-24 pl-4 lg:pl-64 lg:pr-60 pr-4 min-h-screen bg-gray-100 dark:bg-[#18181A] text-gray-900 dark:text-white transition-colors duration-300">
-      <h1 className="text-4xl font-bold mb-8">Settings</h1>
+    <div className="pt-24 pl-0 lg:pl-64 lg:pr-60 pr-4 min-h-screen bg-gray-100 dark:bg-[#18181A] text-gray-900 dark:text-white transition-colors duration-300">
+      <h1 className="text-4xl ml-4 font-bold mb-8">Settings</h1>
 
-      <div className="bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-md max-w-2xl">
+      <div className="bg-white ml-4 lg:ml-0 dark:bg-[#2A2A2A] p-6 rounded-xl shadow-md max-w-2xl">
         <h2 className="text-2xl font-bold mb-4">Appearance</h2>
 
         <div className="flex items-center justify-between">
@@ -34,6 +35,7 @@ export function Settings() {
           Current theme: <span className="font-bold capitalize">{theme}</span>
         </p>
       </div>
+      <ControlMobileBar />
     </div>
   );
 }
