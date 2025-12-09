@@ -10,7 +10,10 @@ interface UserState {
   isPro: boolean;
   isSignIn: boolean;
   user: User | null;
+  theme: "dark" | "light";
 }
+
+const savedTheme = localStorage.getItem("theme") as "dark" | "light" | null;
 
 const savedUserJSON = localStorage.getItem("currentUser");
 const savedUser: User | null = savedUserJSON ? JSON.parse(savedUserJSON) : null;
@@ -22,6 +25,7 @@ const initialState: UserState = {
   isPro: savedIsPro,
   isSignIn: !!savedUser,
   user: savedUser,
+  theme: savedTheme || "dark",
 };
 
 export const userSlice = createSlice({
@@ -63,9 +67,14 @@ export const userSlice = createSlice({
 
       localStorage.removeItem("currentUser");
     },
+
+    toggleTheme: (state) => {
+      state.theme = state.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", state.theme);
+    },
   },
 });
 
-export const { upgradeToPro, downgradeToFree, signIn, logOut } =
+export const { upgradeToPro, downgradeToFree, signIn, logOut, toggleTheme } =
   userSlice.actions;
 export default userSlice.reducer;

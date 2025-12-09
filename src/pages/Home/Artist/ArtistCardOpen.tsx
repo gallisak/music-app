@@ -65,7 +65,9 @@ export function ArtistCardOpen() {
           className="h-35 w-35 my-3 rounded-2xl"
           alt="artist's photo"
         />
-        <h1 className="text-white mb-5 text-[20px]">{dataArtist?.name}</h1>
+        <h1 className="dark:text-white text-black mb-5 text-[20px]">
+          {dataArtist?.name}
+        </h1>
       </div>
 
       {data?.data?.map((track) => {

@@ -7,7 +7,7 @@ export function LikedSongsPage() {
   const { likedTracks } = useAppSelector((state) => state.likedSongs);
 
   return (
-    <div className="flex bg-[#18181A] min-h-screen text-white">
+    <div className="flex dark:bg-[#18181A] bg-[#a8a8a8] min-h-screen text-white">
       <main className="flex-1 pt-24 pl-3 lg:pl-50 pr-4 lg:pr-80">
         <div className="flex items-end gap-5 mb-8">
           <div className="w-40 h-40 bg-linear-to-br ml-4 from-indigo-500 to-purple-500 rounded shadow-lg flex items-center justify-center">
@@ -20,9 +20,15 @@ export function LikedSongsPage() {
             </span>
           </div>
           <div>
-            <p className="text-sm font-bold uppercase">Playlist</p>
-            <h1 className="text-5xl font-black mb-2">Liked Songs</h1>
-            <p className="text-gray-400">{likedTracks.length} songs</p>
+            <p className="text-sm font-bold dark:text-white text-black uppercase">
+              Playlist
+            </p>
+            <h1 className="text-5xl dark:text-white text-black font-black mb-2">
+              Liked Songs
+            </h1>
+            <p className=" dark:text-white text-black">
+              {likedTracks.length} songs
+            </p>
           </div>
         </div>
 
@@ -35,11 +41,11 @@ export function LikedSongsPage() {
                 title={track.title}
                 description={track.artistName}
                 photo={track.coverUrl}
-                className="hover:bg-[#2A2A2A] w-full rounded-md transition-colors"
+                className="dark:hover:bg-[#2A2A2A] hover:bg-[#b9b9b9] w-full rounded-md transition-colors"
               />
             ))
           ) : (
-            <div className="mt-10 text-gray-500">
+            <div className="mt-10 dark:text-white text-black">
               You haven't liked any songs yet.
             </div>
           )}

@@ -86,13 +86,15 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
               {isPro ? (
                 <>
                   <div className="flex justify-between items-center mb-5">
-                    <h1 className="text-white lg:text-[25px]">
+                    <h1 className="dark:text-white text-black lg:text-[25px]">
                       Downgrade To Free
                     </h1>
-                    <h1 className="text-gray-500 text-[25px]">Current Plan</h1>
+                    <h1 className="dark:text-gray-500 text-black text-[25px]">
+                      Current Plan
+                    </h1>
                   </div>
 
-                  <p className="text-gray-400 mb-5">
+                  <p className="dark:text-gray-400 text-black mb-5">
                     Are you sure you want to cancel your Pro subscription?
                   </p>
 
@@ -121,7 +123,7 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
                       onChange={handleCardNumberChange}
                       type="text"
                       placeholder="Card number"
-                      className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                      className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#d7d7d7] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black"
                     />
                   </div>
 
@@ -132,7 +134,7 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
                         onChange={handleDateChange}
                         type="text"
                         placeholder="Date (MM/YY)"
-                        className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                        className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#d7d7d7] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black"
                       />
                     </div>
 
@@ -143,12 +145,12 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
                         type={showCVV ? "text" : "password"}
                         placeholder="CVV"
                         maxLength={3}
-                        className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 pr-16 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                        className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#d7d7d7] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black"
                       />
 
                       <button
                         type="button"
-                        className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white text-sm font-semibold"
+                        className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 dark:text-gray-400 text-black hover:text-white text-sm font-semibold"
                         onClick={() => setShowCVV(!showCVV)}
                       >
                         {showCVV ? "Hide" : "Show"}
@@ -158,7 +160,7 @@ export function UpgradeButton({ className, children }: UpgradeButtonProps) {
 
                   <button
                     onClick={handleUpgrade}
-                    className="cursor-pointer rounded-4xl mt-8 bg-[#2A2A2A] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 text-white font-bold transition-colors"
+                    className="cursor-pointer rounded-4xl mt-8 dark:bg-[#2A2A2A] bg-[#dadada] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 dark:text-white text-black font-bold transition-colors"
                   >
                     Pay
                   </button>

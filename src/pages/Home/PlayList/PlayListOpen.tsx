@@ -44,7 +44,7 @@ export function PlayListOpen() {
             alt="album photo"
           />
           <div>
-            <h1 className="text-white font-black text-4xl ml-5 mt-5 mb-2">
+            <h1 className="dark:text-white text-black font-black text-4xl ml-5 mt-5 mb-2">
               {albumDetails?.title}
             </h1>
             {tracksData &&
@@ -52,7 +52,7 @@ export function PlayListOpen() {
                 return (
                   <h1
                     key={artist.id}
-                    className="text-white text-2xl ml-5 mt-5 mb-2"
+                    className="dark:text-white text-black text-2xl ml-5 mt-5 mb-2"
                   >
                     {artist.artist.name}
                   </h1>

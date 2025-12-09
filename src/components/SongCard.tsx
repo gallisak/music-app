@@ -38,7 +38,7 @@ export function SongCard({
     <div
       className={`
         h-15 flex group relative 
-        bg-[#232323] overflow-hidden 
+        dark:bg-[#222] bg-[#b0b0b0] overflow-hidden 
         hover:brightness-70
         ${className || ""} 
       `}
@@ -60,8 +60,10 @@ export function SongCard({
       </div>
 
       <div className="relative z-0 flex flex-col min-w-0 justify-center w-full">
-        <h1 className="text-white text-[16px] truncate ml-4 pr-2">{title}</h1>
-        <p className="text-gray-400 ml-4 pr-2 truncate text-[12px]">
+        <h1 className=" text-[16px] dark:text-white text-black truncate ml-4 pr-2">
+          {title}
+        </h1>
+        <p className=" dark:text-white text-black ml-4 pr-2 truncate text-[12px]">
           {description}
         </p>
       </div>

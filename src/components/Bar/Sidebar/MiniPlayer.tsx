@@ -117,12 +117,14 @@ export function MiniPlayer() {
             </button>
           </div>
           <div className="w-39 mt-3">
-            <h1 className="font-bold text-[20px] truncate">
+            <h1 className="font-bold text-[20px] dark:text-white text-black truncate">
               {currentTrack?.title}
             </h1>
 
             <div className="w-full flex items-center gap-2 text-[10px] text-gray-400 font-mono mt-1 mb-1">
-              <span>{formatTime(currentTime)}</span>
+              <span className="dark:text-white text-black">
+                {formatTime(currentTime)}
+              </span>
               <input
                 type="range"
                 min="0"
@@ -138,11 +140,15 @@ export function MiniPlayer() {
                   }
                 `}
               />
-              <span>{formatTime(duration)}</span>
+              <span className="dark:text-white text-black">
+                {formatTime(duration)}
+              </span>
             </div>
 
             <div className="flex justify-between items-center gap-4">
-              <p className="text-[10px] truncate">{currentTrack?.artistName}</p>
+              <p className="text-[10px] dark:text-white text-black">
+                {currentTrack?.artistName}
+              </p>
               <button
                 className="cursor-pointer hover:scale-110 transition-transform"
                 onClick={handleLikeClick}

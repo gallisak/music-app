@@ -18,11 +18,13 @@ export function CreatePlaylist() {
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <div className="mt-10 flex flex-col items-center">
-            <h1 className="mb-5 text-white text-[25px]">Create Playlist</h1>
+            <h1 className="mb-5 dark:text-white text-black text-[25px]">
+              Create Playlist
+            </h1>
             <input
               type="text"
               placeholder="Name"
-              className="ml-3 rounded-4xl bg-[#2A2A2A] p-3 pl-6 w-full lg:w-175 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+              className="ml-3 rounded-4xl dark:bg-[#2A2A2A] bg-[#dddddd] p-3 pl-6 w-full lg:w-175 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black"
             />
             <button className="mt-5 text-white pl-10 pr-10 pt-3 pb-3 rounded-2xl bg-[#000000] cursor-pointer hover:bg-[#454545]">
               Create

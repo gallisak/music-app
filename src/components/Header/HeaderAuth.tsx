@@ -8,6 +8,7 @@ import { loadUserLikes } from "../../app/features/library/likedSongsSlice";
 import { signIn } from "../../app/features/user/userSlice";
 import { UpgradeButton } from "../UpgradeButton";
 import { loadUserHistory } from "../../app/features/player/playerSlice";
+import { Link } from "react-router-dom";
 
 export function HeaderAuth() {
   const dispatch = useAppDispatch();
@@ -100,7 +101,7 @@ export function HeaderAuth() {
     <>
       <div
         onClick={() => (isSignIn ? setIsOpen(!isOpen) : setIsModalOpen(true))}
-        className="rounded-3xl w-35 lg:w-56 cursor-pointer h-12 bg-[#2A2A2A] flex items-center justify-center p-1.5"
+        className="rounded-3xl w-35 lg:w-56 cursor-pointer h-12 dark:bg-[#2A2A2A] text-black dark:text-white dark:border-none bg-[#bbb] border-2 border-black flex items-center justify-center p-1.5"
       >
         {isSignIn ? (
           <div className="flex items-center relative">
@@ -124,9 +125,12 @@ export function HeaderAuth() {
                 <span className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
                   <a href="/">Profile</a>
                 </span>
-                <span className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
-                  <a href="/">Settings</a>
-                </span>
+                <Link to="/Settings">
+                  <span className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
+                    <p>Settings</p>
+                  </span>
+                </Link>
+
                 <span
                   onClick={handleLogout}
                   className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer"
@@ -157,8 +161,8 @@ export function HeaderAuth() {
               onClick={() => setPageChange(false)}
               className={
                 !pageChange
-                  ? "text-white border-b-2 border-green-500 pb-1"
-                  : "text-gray-400 pb-1"
+                  ? "dark:text-white text-black border-b-2 border-green-500 pb-1"
+                  : "dark:text-white text-black pb-1"
               }
             >
               Log in
@@ -167,8 +171,8 @@ export function HeaderAuth() {
               onClick={() => setPageChange(true)}
               className={
                 pageChange
-                  ? "text-white border-b-2 border-green-500 pb-1"
-                  : "text-gray-400 pb-1"
+                  ? "dark:text-white text-black border-b-2 border-green-500 pb-1"
+                  : "dark:text-white text-black pb-1"
               }
             >
               Register
@@ -178,7 +182,9 @@ export function HeaderAuth() {
           {pageChange ? (
             <>
               <div className="w-full flex justify-center">
-                <h1 className="text-white text-[22px]">Register</h1>
+                <h1 className="dark:text-white text-black text-[22px]">
+                  Register
+                </h1>
               </div>
               <div className="flex flex-col gap-4 mt-5">
                 <input
@@ -186,7 +192,7 @@ export function HeaderAuth() {
                   onChange={(e) => setEmailRegister(e.target.value)}
                   type="email"
                   placeholder="Email"
-                  className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                  className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#c9c9c9] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black font-bord"
                 />
                 <div className="relative w-full">
                   <input
@@ -194,11 +200,11 @@ export function HeaderAuth() {
                     onChange={(e) => setPasswordRegister(e.target.value)}
                     type={showCVV ? "text" : "password"}
                     placeholder="Password"
-                    className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 pr-16 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                    className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#c9c9c9] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black font-bord"
                   />
                   <button
                     type="button"
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-semibold"
+                    className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-semibold"
                     onClick={() => setShowCVV(!showCVV)}
                   >
                     {showCVV ? "Hide" : "Show"}
@@ -209,12 +215,12 @@ export function HeaderAuth() {
                   onChange={(e) => setName(e.target.value)}
                   type="text"
                   placeholder="Username"
-                  className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                  className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#c9c9c9] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black font-bord"
                 />
               </div>
               <button
                 onClick={handleRegister}
-                className="cursor-pointer rounded-4xl mt-8 bg-[#2A2A2A] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 text-white font-bold transition-colors"
+                className="cursor-pointer rounded-4xl mt-8 dark:bg-[#2A2A2A] bg-[#bdbdbd] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 dark:text-white text-black  font-bold transition-colors"
               >
                 Register
               </button>
@@ -222,7 +228,9 @@ export function HeaderAuth() {
           ) : (
             <>
               <div className="w-full flex justify-center">
-                <h1 className="text-white text-[22px]">Log in</h1>
+                <h1 className="dark:text-white text-black text-[22px]">
+                  Log in
+                </h1>
               </div>
               <div className="flex flex-col gap-4 mt-5">
                 <input
@@ -230,7 +238,7 @@ export function HeaderAuth() {
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   placeholder="Email"
-                  className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                  className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#c9c9c9] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black font-bord"
                 />
                 <div className="relative w-full">
                   <input
@@ -238,11 +246,11 @@ export function HeaderAuth() {
                     onChange={(e) => setPassword(e.target.value)}
                     type={showCVV ? "text" : "password"}
                     placeholder="Password"
-                    className="w-full rounded-4xl bg-[#2A2A2A] p-3 pl-6 pr-16 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+                    className="w-full rounded-4xl dark:bg-[#2A2A2A] bg-[#c9c9c9] p-3 pl-6 focus:outline-none border-[#18181A] border-2 focus:border-green-500 dark:text-white text-black font-bord"
                   />
                   <button
                     type="button"
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-semibold"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-semibold cursor-pointer"
                     onClick={() => setShowCVV(!showCVV)}
                   >
                     {showCVV ? "Hide" : "Show"}
@@ -251,7 +259,7 @@ export function HeaderAuth() {
               </div>
               <button
                 onClick={handleLogin}
-                className="cursor-pointer rounded-4xl mt-8 bg-[#2A2A2A] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 text-white font-bold transition-colors"
+                className="cursor-pointer rounded-4xl mt-8 dark:bg-[#2A2A2A] bg-[#bdbdbd] p-3 w-full focus:outline-none border-[#18181A] border-2 hover:border-green-500 dark:text-white text-black  font-bold transition-colors"
               >
                 Log in
               </button>

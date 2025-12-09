@@ -17,7 +17,7 @@ export function Modal({ children, onClose }: ModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-[#333333] border-4 border-green-500 p-6 rounded-4xl shadow-lg"
+        className="dark:bg-[#333333] bg-[#d8d8d8] border-4 border-green-500 p-6 rounded-4xl shadow-lg"
       >
         <button onClick={onClose} className="float-right">
           <img className="w-6 h-6 cursor-pointer" src={closeIcon} alt="" />

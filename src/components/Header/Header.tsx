@@ -20,8 +20,8 @@ export function Header() {
         <UpgradeButton
           className={`${
             isPro
-              ? "cursor-pointer hidden lg:block border-gold-500 text-green-500 mr-5 ml-5 shrink-0"
-              : "hidden cursor-pointer lg:flex items-center justify-center rounded-3xl h-12 w-42 bg-[#2A2A2A] border-2 border-green-500 hover:brightness-70 text-white font-bold shrink-0"
+              ? "cursor-pointer hidden lg:block border-gold-500 dark:text-green-500 text-black mr-5 ml-5 shrink-0"
+              : "hidden cursor-pointer lg:flex items-center justify-center rounded-3xl h-12 w-42 dark:bg-[#2A2A2A] bg-[#c1c1c1] border-2 border-green-500 hover:brightness-70 dark:text-white text-black font-bold shrink-0"
           }`}
         >
           {isPro ? "PRO ACCOUNT" : "UPGRADE"}

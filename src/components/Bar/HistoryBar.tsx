@@ -7,7 +7,7 @@ export function HistoryBar() {
   return (
     <aside className="bg-[#2A2A2A]/30 backdrop-blur-lg fixed hidden top-0 z-1 overflow-y-auto scrollbar-none lg:block h-full w-50 right-0">
       <span className="w-full flex justify-center">
-        <h2 className="text-white font-bold mb-4 mt-22 text-lg">
+        <h2 className="dark:text-white text-black font-bold mb-4 mt-22 text-lg">
           Recently Played
         </h2>
       </span>
@@ -21,7 +21,7 @@ export function HistoryBar() {
               title={track.title}
               description={track.artistName}
               photo={track.coverUrl}
-              className="w-full bg-transparent border-none p-0 hover:bg-[#2A2A2A] rounded-md transition-colors"
+              className="w-full dark:bg-transparent bg-transparent border-none p-0 hover:bg-[#afafaf] dark:hover:bg-[#151515] rounded-md transition-colors"
             />
           ))}
         </div>

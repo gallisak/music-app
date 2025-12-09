@@ -7,30 +7,33 @@ import { MiniPlayer } from "./MiniPlayer";
 
 export function SideBar() {
   return (
-    <aside className="bg-[#333333] fixed z-11 hidden lg:flex w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
+    <aside className="dark:bg-[#333333] bg-[#939393] fixed z-11 hidden lg:flex w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
       <div className="flex items-center justify-center flex-col">
-        <Link to="/" className="text-3xl font-bold text-[#1ED760] mt-3">
+        <Link
+          to="/"
+          className="text-3xl font-bold dark:text-[#1ED760] text-[#000] mt-3"
+        >
           Music-app
         </Link>
-        <p className="text-[#006724]">by gallisak</p>
+        <p className="dark:text-[#006724] text-[#000]">by gallisak</p>
       </div>
 
       <div className="ml-5 mt-5 text-[#ACACAC]">
-        <div className="mb-3 flex gap-2 w-6 h-6 ">
+        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 w-6 h-6 ">
           <img src={homeIcon} alt="Home icon" />
-          <Link className="hover:text-[#ffffff]" to="/">
+          <Link className="dark:hover:text-[#ffffff]" to="/">
             Home
           </Link>
         </div>
-        <div className="mb-3 flex gap-2">
+        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 w-6 h-6 ">
           <img src={libraryIcon} alt="Library Icon" />
-          <Link className="hover:text-[#ffffff]" to="/Library">
+          <Link className="dark:hover:text-[#ffffff]" to="/Library">
             Your Library
           </Link>
         </div>
-        <div className="mb-3 flex gap-2">
+        <div className="mb-3 pl-2 bg-[#000] dark:bg-[#333333] w-40 h-8 rounded-sm flex items-center gap-2 w-6 h-6 ">
           <img src={headphones} alt="Liked songs Icon" />
-          <Link className="hover:text-[#ffffff]" to="/LikedSongs">
+          <Link className="dark:hover:text-[#ffffff]" to="/LikedSongs">
             Liked Songs
           </Link>
         </div>

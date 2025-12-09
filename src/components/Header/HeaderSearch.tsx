@@ -19,7 +19,7 @@ export function HeaderSearch() {
         onKeyDown={handleSearch}
         type="text"
         placeholder="Search"
-        className="rounded-4xl bg-[#2A2A2A] min-w-22 sm:min-w-30 p-3 pl-6 flex-1 mr-3 focus:outline-none border-[#18181A] border-2 focus:border-green-500 text-white"
+        className="rounded-4xl dark:bg-[#2A2A2A] bg-[#cbcbcb] font-bold text-black dark:text-white min-w-22 sm:min-w-30 p-3 pl-6 flex-1 mr-3 focus:outline-none border-[#18181A] border-2 focus:border-green-500"
       />
     </>
   );
