@@ -2,7 +2,7 @@ import cover from "../../assets/images/Cover.png";
 
 export function PersonalPlayListCard() {
   return (
-    <div className="mr-50">
+    <div className="lg:mr-50 mr-0">
       <div className="h-30 border-b-2 flex w-full dark:bg-[#232323] bg-[#787878] overflow-hidden hover:brightness-70">
         <div className="h-full ml-5 flex justify-start items-center">
           <img

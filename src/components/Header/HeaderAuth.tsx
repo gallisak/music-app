@@ -122,9 +122,12 @@ export function HeaderAuth() {
               }`}
             >
               <div className="flex flex-col justify-center text-[18px] py-2">
-                <span className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
-                  <a href="/">Profile</a>
-                </span>
+                <Link to="/Profile">
+                  <span className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
+                    <p>Profile</p>
+                  </span>
+                </Link>
+
                 <Link to="/Settings">
                   <span className="w-full py-2 flex justify-center items-center hover:bg-[#363636] cursor-pointer">
                     <p>Settings</p>

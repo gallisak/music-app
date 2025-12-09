@@ -11,6 +11,7 @@ import { SearchPage } from "./pages/Search/SearchPage";
 import { Settings } from "./pages/Settings/Settings";
 import { useEffect } from "react";
 import { useAppSelector } from "./app/hooks";
+import { ProfilePage } from "./pages/Profile/ProfilePage";
 
 function App() {
   const theme = useAppSelector((state) => state.user.theme);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/Artist/:artistId" element={<ArtistCardOpen />} />
           <Route path="/search/:query" element={<SearchPage />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/Profile" element={<ProfilePage />} />
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
