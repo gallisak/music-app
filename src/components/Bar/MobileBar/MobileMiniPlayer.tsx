@@ -2,14 +2,28 @@ import playblack from "../../../assets/images/playblack.png";
 import stopblack from "../../../assets/images/free-icon-pause-button-3249396.png";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { play, pause } from "../../../app/features/player/playerSlice";
+import like from "../../../assets/images/Active.png";
+import emptyLike from "../../../assets/images/empty-like.png";
+import { toggleLike } from "../../../app/features/library/likedSongsSlice";
 
 export function MobileMiniPlayer() {
   const { currentTrack, isPlaying } = useAppSelector((state) => state.player);
   const dispatch = useAppDispatch();
+  const { likedTracks } = useAppSelector((state) => state.likedSongs);
 
   if (!currentTrack) {
     return null;
   }
+
+  const handleLikeClick = () => {
+    if (currentTrack) {
+      dispatch(toggleLike(currentTrack));
+    }
+  };
+
+  const isLiked = currentTrack
+    ? likedTracks.some((track) => track.id === currentTrack.id)
+    : false;
 
   return (
     <div className="dark:bg-[#18181A] bg-[#d3d3d3] flex justify-between w-full h-15 z-50 lg:hidden fixed bottom-15 left-0 px-4 border-t border-gray-500">
@@ -30,6 +44,17 @@ export function MobileMiniPlayer() {
       </div>
 
       <div className="flex justify-center items-center">
+        <button
+          className="cursor-pointer hover:scale-110 mr-1 transition-transform"
+          onClick={handleLikeClick}
+        >
+          <img
+            className="w-5 h-5"
+            src={isLiked ? like : emptyLike}
+            alt="like icon"
+          />
+        </button>
+
         <button
           onClick={() => dispatch(isPlaying ? pause() : play())}
           className="bg-white h-9 w-9 border-4 border-green-500 rounded-full flex justify-center items-center cursor-pointer hover:brightness-90"
