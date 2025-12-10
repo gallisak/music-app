@@ -25,8 +25,13 @@ export function SongCard({
   track,
 }: SongCardProps) {
   const dispatch = useAppDispatch();
+
   const playlists = useAppSelector((state) => state.playlists.playlists);
+  const user = useAppSelector((state) => state.user.user);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const myPlaylists = playlists.filter((p) => p.userId === user?.email);
 
   const activeTrackData: ActiveTrack = {
     id: track.id,
@@ -36,11 +41,17 @@ export function SongCard({
     coverUrl: photo || "",
   };
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     dispatch(setCurrentTrack(activeTrackData));
   };
 
-  const addToPlaylist = () => {
+  const addToPlaylist = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
+    if (!user) {
+      return alert("Please log in to add songs to playlist!");
+    }
     setIsModalOpen(true);
   };
 
@@ -74,31 +85,32 @@ export function SongCard({
         </div>
       </div>
 
-      <div className="relative z-0 flex flex-col min-w-0 justify-center w-full">
-        <h1 className=" text-[16px] dark:text-white text-black truncate ml-4 pr-2">
+      <div className="relative z-0 flex flex-col min-w-0 justify-center w-full px-4">
+        <h1 className="text-[16px] dark:text-white text-black truncate pr-2">
           {title}
         </h1>
-        <p className=" dark:text-white text-black ml-4 pr-2 truncate text-[12px]">
+        <p className="dark:text-white text-black pr-2 truncate text-[12px]">
           {description}
         </p>
       </div>
+
       <div
         onClick={addToPlaylist}
-        className="flex items-end pr-3 pl-3 cursor-pointer text-white hover:text-green-500 font-bold"
+        className="flex items-end justify-center pr-4 pl-3 cursor-pointer text-white hover:text-green-500 font-bold h-full"
       >
-        +
+        <span className="text-2xl pb-1">+</span>
       </div>
 
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <div className="mt-8 w-full max-w-sm mx-auto">
+          <div className="mt-8 w-full max-w-sm mx-auto px-4">
             <h2 className="text-xl font-bold text-white text-center mb-6">
               Add to Playlist
             </h2>
 
             <div className="flex flex-col gap-3 max-h-[300px] overflow-y-auto scrollbar-none">
-              {playlists.length > 0 ? (
-                playlists.map((playlist) => (
+              {myPlaylists.length > 0 ? (
+                myPlaylists.map((playlist) => (
                   <button
                     key={playlist.id}
                     onClick={() => handleSelectPlaylist(playlist.id)}

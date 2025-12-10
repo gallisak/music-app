@@ -8,6 +8,9 @@ import { useAppSelector } from "../../../app/hooks";
 
 export function SideBar() {
   const playlists = useAppSelector((state) => state.playlists.playlists);
+  const user = useAppSelector((state) => state.user.user);
+
+  const myPlaylists = playlists.filter((p) => p.userId === user?.email);
 
   return (
     <aside className="dark:bg-[#333333] bg-[#939393] fixed z-11 hidden lg:flex w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
@@ -48,19 +51,26 @@ export function SideBar() {
 
       <MiniPlayer />
 
-      <div className="ml-5 mt-5 dark:text-[#ACACAC] text-white overflow-y-auto max-h-60 scrollbar-none">
-        {playlists.length === 0 && <p className="text-sm">No playlists yet</p>}
+      <div className="ml-5 mt-5 dark:text-[#ACACAC] text-white overflow-y-auto max-h-60 scrollbar-none pb-20">
+        {!user && (
+          <p className="text-sm text-black dark:text-gray-400">
+            Log in to see playlists
+          </p>
+        )}
 
-        {playlists.map((playlist) => (
+        {user && myPlaylists.length === 0 && (
+          <p className="text-sm text-black dark:text-gray-400">
+            No playlists yet
+          </p>
+        )}
+
+        {myPlaylists.map((playlist) => (
           <Link
             key={playlist.id}
             to={`/playlist/${playlist.id}`}
             className="block mb-1 hover:text-[#ffffff] truncate"
           >
-            <div
-              key={playlist.id}
-              className="dark:bg-[#060606] bg-[#ffffff] dark:text-white text-black p-1 flex items-center rounded-l-2xl"
-            >
+            <div className="dark:bg-[#060606] bg-[#ffffff] dark:text-white text-black p-1 flex items-center rounded-l-2xl pl-3 hover:brightness-90 transition-all">
               {playlist.name}
             </div>
           </Link>

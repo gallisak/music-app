@@ -3,6 +3,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 export interface Playlist {
   id: string;
   name: string;
+  userId: string;
   tracks: any[];
   createdAt: string;
 }
@@ -20,10 +21,14 @@ const playlistSlice = createSlice({
   name: "playlists",
   initialState,
   reducers: {
-    createPlaylist: (state, action: PayloadAction<string>) => {
+    createPlaylist: (
+      state,
+      action: PayloadAction<{ name: string; userId: string }>
+    ) => {
       const newPlaylist: Playlist = {
         id: Date.now().toString(),
-        name: action.payload,
+        name: action.payload.name,
+        userId: action.payload.userId,
         tracks: [],
         createdAt: new Date().toISOString(),
       };
@@ -43,16 +48,10 @@ const playlistSlice = createSlice({
         if (!exists) {
           playlist.tracks.push(track);
           localStorage.setItem("playlists", JSON.stringify(state.playlists));
-          alert(`Added to ${playlist.name}!`);
         } else {
           alert("Song is already in this playlist!");
         }
       }
-    },
-
-    deletePlaylist: (state, action: PayloadAction<string>) => {
-      state.playlists = state.playlists.filter((p) => p.id !== action.payload);
-      localStorage.setItem("playlists", JSON.stringify(state.playlists));
     },
 
     removeTrackFromPlaylist: (
@@ -66,13 +65,18 @@ const playlistSlice = createSlice({
         localStorage.setItem("playlists", JSON.stringify(state.playlists));
       }
     },
+
+    deletePlaylist: (state, action: PayloadAction<string>) => {
+      state.playlists = state.playlists.filter((p) => p.id !== action.payload);
+      localStorage.setItem("playlists", JSON.stringify(state.playlists));
+    },
   },
 });
 
 export const {
   createPlaylist,
   addTrackToPlaylist,
-  deletePlaylist,
   removeTrackFromPlaylist,
+  deletePlaylist,
 } = playlistSlice.actions;
 export default playlistSlice.reducer;
