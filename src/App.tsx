@@ -12,6 +12,7 @@ import { Settings } from "./pages/Settings/Settings";
 import { useEffect } from "react";
 import { useAppSelector } from "./app/hooks";
 import { ProfilePage } from "./pages/Profile/ProfilePage";
+import { PlaylistPage } from "./pages/Library/PlaylistPage";
 
 function App() {
   const theme = useAppSelector((state) => state.user.theme);
@@ -35,11 +36,12 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/Library" element={<LibraryPage />} />
           <Route path="/LikedSongs" element={<LikedSongsPage />} />
-          <Route path="/PlayList/:albumId" element={<PlayListOpen />} />
+          <Route path="/album/:albumId" element={<PlayListOpen />} />
           <Route path="/Artist/:artistId" element={<ArtistCardOpen />} />
           <Route path="/search/:query" element={<SearchPage />} />
           <Route path="/Settings" element={<Settings />} />
           <Route path="/Profile" element={<ProfilePage />} />
+          <Route path="/playlist/:id" element={<PlaylistPage />} />
           <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>

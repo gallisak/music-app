@@ -9,9 +9,11 @@ export function LibraryPage() {
     <>
       <Header />
       <HistoryBar />
-      <div className="h-80 ml-0 lg:ml-47 lg:mt-20 flex">
+
+      <div className="ml-0 lg:ml-47 lg:mt-20 flex min-h-screen">
         <PersonalPlayListCardFlex />
       </div>
+
       <div>
         <MobileMiniPlayer />
         <ControlMobileBar />

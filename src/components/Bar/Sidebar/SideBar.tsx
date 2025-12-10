@@ -4,8 +4,11 @@ import homeIcon from "../../../assets/images/free-icon-home-10995497.png";
 import { Link } from "react-router-dom";
 import { CreatePlaylist } from "./CreatePlaylist";
 import { MiniPlayer } from "./MiniPlayer";
+import { useAppSelector } from "../../../app/hooks";
 
 export function SideBar() {
+  const playlists = useAppSelector((state) => state.playlists.playlists);
+
   return (
     <aside className="dark:bg-[#333333] bg-[#939393] fixed z-11 hidden lg:flex w-50 h-full overflow-y-auto scrollbar-none flex-col top-0">
       <div className="flex items-center justify-center flex-col">
@@ -44,6 +47,25 @@ export function SideBar() {
       <div className="w-41 mt-3 ml-4 border-[#464646] border-b-2 h-2"></div>
 
       <MiniPlayer />
+
+      <div className="ml-5 mt-5 dark:text-[#ACACAC] text-white overflow-y-auto max-h-60 scrollbar-none">
+        {playlists.length === 0 && <p className="text-sm">No playlists yet</p>}
+
+        {playlists.map((playlist) => (
+          <Link
+            key={playlist.id}
+            to={`/playlist/${playlist.id}`}
+            className="block mb-1 hover:text-[#ffffff] truncate"
+          >
+            <div
+              key={playlist.id}
+              className="bg-[#060606] p-1 flex items-center rounded-l-2xl"
+            >
+              {playlist.name}
+            </div>
+          </Link>
+        ))}
+      </div>
     </aside>
   );
 }

@@ -27,7 +27,7 @@ export function PlayListCard() {
           return (
             <Link
               key={album.id}
-              to={`/PlayList/${album.id}`}
+              to={`/album/${album.id}`}
               className="shrink-0 h-full relative w-55 overflow-hidden rounded-md ml-3 hover:brightness-70"
             >
               <img

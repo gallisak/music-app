@@ -4,12 +4,14 @@ import { musicApi } from "./services/musicApi";
 import PlayerReducer from "./features/player/playerSlice";
 import userReducer from "./features/user/userSlice";
 import likedSongsReducer from "./features/library/likedSongsSlice";
+import playlistReducer from "./features/playlist/playlistSlice";
 
 export const store = configureStore({
   reducer: {
     player: PlayerReducer,
     user: userReducer,
     likedSongs: likedSongsReducer,
+    playlists: playlistReducer,
 
     [musicApi.reducerPath]: musicApi.reducer,
   },
