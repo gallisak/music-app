@@ -59,7 +59,7 @@ export function SideBar() {
           >
             <div
               key={playlist.id}
-              className="bg-[#060606] p-1 flex items-center rounded-l-2xl"
+              className="dark:bg-[#060606] bg-[#ffffff] dark:text-white text-black p-1 flex items-center rounded-l-2xl"
             >
               {playlist.name}
             </div>
