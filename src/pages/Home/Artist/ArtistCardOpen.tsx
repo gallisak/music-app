@@ -84,7 +84,7 @@ export function ArtistCardOpen() {
         );
       })}
 
-      <div>
+      <div className="pb-30">
         <MobileMiniPlayer />
         <ControlMobileBar />
       </div>

@@ -86,7 +86,7 @@ export function PlayListOpen() {
           );
         })}
 
-      <div className="pb-20">
+      <div className="pb-30">
         <MobileMiniPlayer />
         <ControlMobileBar />
       </div>

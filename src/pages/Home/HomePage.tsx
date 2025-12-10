@@ -22,7 +22,7 @@ export function HomePage() {
         Top artists
       </h1>
 
-      <div className="h-41 ml-0 lg:ml-50 mb-10 flex">
+      <div className="h-41 ml-0 lg:ml-50 lg:mb-10 mb-40 flex">
         <ArtistCardFlex />
       </div>
 

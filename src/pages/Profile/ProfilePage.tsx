@@ -5,6 +5,8 @@ import {
   downgradeToFree,
 } from "../../app/features/user/userSlice";
 import { Link } from "react-router-dom";
+import { MobileMiniPlayer } from "../../components/Bar/MobileBar/MobileMiniPlayer";
+import { ControlMobileBar } from "../../components/Bar/MobileBar/ControlMobileBar";
 
 export function ProfilePage() {
   const dispatch = useAppDispatch();
@@ -45,7 +47,7 @@ export function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 dark:bg-[#121212] text-gray-900 dark:text-white transition-colors duration-300 pt-25 lg:pl-60 lg:pr-60 pb-10 px-6">
+    <div className="min-h-screen w-full bg-gray-100 dark:bg-[#121212] text-gray-900 dark:text-white transition-colors duration-300 pt-25 lg:pl-60 lg:pr-60 pb-10 ">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
           <div
@@ -151,6 +153,10 @@ export function ProfilePage() {
             Log Out
           </button>
         </div>
+      </div>
+      <div className="pb-30">
+        <MobileMiniPlayer />
+        <ControlMobileBar />
       </div>
     </div>
   );
