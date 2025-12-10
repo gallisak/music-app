@@ -18,8 +18,8 @@ export function PersonalPlayListCardFlex() {
   }
 
   return (
-    <div className="flex flex-col w-full px-4 lg:px-0 pb-32">
-      <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
+    <div className="flex flex-col pt-25 lg:pt-0 w-full lg:px-0 pb-32">
+      <h2 className="text-2xl ml-5   font-bold text-black dark:text-white mb-6">
         Your Playlists
       </h2>
 

@@ -10,7 +10,7 @@ export function ControlMobileBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="dark:bg-[#18181A] bg-[#d3d3d3] flex justify-between w-full h-15 z-0 lg:hidden fixed bottom-0">
+    <div className="dark:bg-[#18181A] bg-[#d3d3d3] flex justify-between w-full h-15 lg:hidden fixed bottom-0">
       <div className=" flex justify-center items-center  ml-5">
         <Link
           className="flex flex-col text-[10px] justify-center items-center"
