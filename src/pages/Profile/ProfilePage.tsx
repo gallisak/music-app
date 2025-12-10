@@ -11,9 +11,14 @@ export function ProfilePage() {
 
   const user = useAppSelector((state) => state.user.user);
   const isPro = useAppSelector((state) => state.user.isPro);
+  const playlists = useAppSelector((state) => state.playlists.playlists);
   const likedTracksCount = useAppSelector(
     (state) => state.likedSongs.likedTracks.length
   );
+
+  const myPlaylistsCount = playlists.filter(
+    (p) => p.userId === user?.email
+  ).length;
 
   const getInitials = (name: string) => {
     return name
@@ -89,7 +94,9 @@ export function ProfilePage() {
             <h3 className="text-gray-500 dark:text-gray-400 font-medium mb-1">
               Playlists Created
             </h3>
-            <p className="text-3xl font-bold text-green-500">0</p>
+            <p className="text-3xl font-bold text-green-500">
+              {myPlaylistsCount}
+            </p>
           </div>
         </div>
 
