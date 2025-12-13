@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# 🎵 Music Streaming App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-Currently, two official plugins are available:
+A modern, responsive music streaming application built with **React** and **TypeScript**. It features a fully functional music player, real-time data fetching from the Deezer API using **RTK Query**, and state management with **Redux Toolkit**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+👉 **[View Live Demo Here](https://music-app-blush-two.vercel.app)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Discover Music:** Browse top charts and popular artists.
+- **Music Player:** Full playback controls (Play, Pause, Next, Previous, Volume, Loop).
+- **Search:** Search for songs, artists, and albums.
+- **Artist Details:** View artist biography and top songs.
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+- **State Management:** Seamless user experience using Redux Toolkit.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** React, TypeScript
+- **State Management:** Redux Toolkit
+- **Data Fetching:** RTK Query (RapidAPI / Deezer API)
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons / Heroicons
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📸 Screenshots
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+|              Home Page               |               Light Mode               |
+| :----------------------------------: | :------------------------------------: |
+| ![Home Page](./screenshots/home.png) | ![Light Mode](./screenshots/light.png) |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Installation & Run Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1.  **Clone the repository:**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ```bash
+    git clone [https://github.com/gallisak/music-app.git](https://github.com/gallisak/music-app.git)
+    ```
+
+2.  **Navigate to the project folder:**
+
+    ```bash
+    cd music-app
+    ```
+
+3.  **Install dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+
+## 🧠 What I Learned
+
+Building this project helped me improve my skills in:
+
+- Configuring **Redux Toolkit** for global state management.
+- Handling asynchronous data fetching and caching with **RTK Query**.
+- Typing props and state with **TypeScript** for better code reliability.
+- Creating complex layouts using **Tailwind CSS**.
+
+---
+
+Designed & Developed by [Andrii Halchyshak](https://github.com/gallisak)
